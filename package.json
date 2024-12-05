@@ -19,7 +19,10 @@
     "vite": "^6.0.1"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "gsap": "^3.12.5",
-    "swapy": "^0.4.2"
+    "svelte-motion": "^0.12.2",
+    "swapy": "^0.4.2",
+    "tailwind-merge": "^2.5.5"
   }
 }

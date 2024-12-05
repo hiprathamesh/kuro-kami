@@ -2,9 +2,9 @@
   import { onMount } from "svelte";
   import { createSwapy } from "swapy";
   import gsap from "gsap";
-
+  import { TextRevealEffect } from "../src/lib/components/ui/text-reveal/index";
   let swapy;
-
+  const words = `Hey, Prathamesh here!`;
   onMount(() => {
     // Ensure the container exists before initializing Swapy
     const container = document.querySelector(
@@ -23,7 +23,13 @@
     }
 
     const header = document.querySelector(".head-first") as HTMLElement | null;
-    const items = document.querySelector(".item1") as HTMLElement;
+    const items1 = document.querySelector(".item1") as HTMLElement;
+    const items2 = document.querySelector(".item2") as HTMLElement;
+    const items3 = document.querySelector(".item3") as HTMLElement;
+    const items4 = document.querySelector(".item4") as HTMLElement;
+    const items5 = document.querySelector(".item5") as HTMLElement;
+    const items6 = document.querySelector(".item6") as HTMLElement;
+    const items7 = document.querySelector(".item7") as HTMLElement;
 
     // Check if the elements exist before animating
     if (header) {
@@ -36,14 +42,89 @@
         onComplete: () => {
           if (1) {
             // Staggered Animation for Tiles after Text Animation Completes
-            gsap.from(items, {
-              opacity: 0, // Ensure the tiles are visible after animation
-              y: -50, // Set them back to their normal position
-              duration: 1.2,
-              ease: "power4.out",
-          
-
-            });
+            gsap.fromTo(
+              items1,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+              }
+            );
+            gsap.fromTo(
+              items2,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                delay: 0.2,
+              }
+            );
+            gsap.fromTo(
+              items3,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                delay: 0.6,
+              }
+            );
+            gsap.fromTo(
+              items4,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                delay: 0.4,
+              }
+            );
+            gsap.fromTo(
+              items5,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                delay: 0.8,
+              }
+            );
+            gsap.fromTo(
+              items6,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                delay: 1.0,
+              }
+            );
+            gsap.fromTo(
+              items7,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, // Ensure the tiles are visible after animation
+                y: 0, // Set them back to their normal position
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                delay: 1.2,
+              }
+            );
           } else {
             console.error("No .item elements found!");
           }
@@ -58,11 +139,11 @@
 <main>
   <div class="wrapper">
     <div class="outer">
-      <span class="head-first">Hey, Prathamesh here!</span>
+      <TextRevealEffect {words} className="head-first" />
       <div class="wrapper">
         <div class="container">
           <div class="section-1 item1" data-swapy-slot="spot1">
-            <div class="item" data-swapy-item="slot1">
+            <div class="item bun" data-swapy-item="slot1">
               <img src="static/emojis/person.png" alt="person" class="emoji" />
               <span>About Me</span>
             </div>
@@ -124,7 +205,7 @@
     width: fit-content;
   }
 
-  .head-first {
+  :global(.head-first) {
     font-size: 45px;
     font-weight: 700;
     color: white;
@@ -168,30 +249,37 @@
   }
 
   .item1 {
+    opacity: 0;
     display: flex;
     grid-area: 1/1/2/2;
   }
   .item2 {
+    opacity: 0;
     display: flex;
     grid-area: 1/2/2/3;
   }
   .item3 {
+    opacity: 0;
     display: flex;
     grid-area: 1/3/3/4;
   }
   .item4 {
+    opacity: 0;
     display: flex;
     grid-area: 2/1/3/3;
   }
   .item5 {
+    opacity: 0;
     display: flex;
     grid-area: 1/4/2/6;
   }
   .item6 {
+    opacity: 0;
     display: flex;
     grid-area: 2/4/3/5;
   }
   .item7 {
+    opacity: 0;
     display: flex;
     grid-area: 2/5/3/6;
   }
