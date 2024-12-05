@@ -143,28 +143,28 @@
       <div class="wrapper">
         <div class="container">
           <div class="section-1 item1" data-swapy-slot="spot1">
-            <div class="item bun" data-swapy-item="slot1">
-              <img src="public/envelope.png" alt="person" class="emoji" />
+            <div class="item" data-swapy-item="slot1">
+              <img src="/static/emojis/person.png" alt="person" class="emoji" />
               <span>About Me</span>
             </div>
           </div>
           <div class="section-2 item2" data-swapy-slot="spot2">
             <div class="item" data-swapy-item="slot2">
-              <img src="public/envelope.png" alt="person" class="emoji" />
+              <img src="/static/emojis/hammer.png" alt="ham" class="emoji" />
               <span>Skills I Can</span>
             </div>
           </div>
           <div class="section-3 item3" data-swapy-slot="spot3">
             <div class="item" data-swapy-item="slot3">
-              <img src="public/envelope.png" alt="person" class="emoji" />
+              <img src="/static/emojis/laptop.png" alt="lap" class="emoji" />
               <span>My Projects</span>
             </div>
           </div>
           <div class="section-4 item4" data-swapy-slot="spot4">
             <div class="item" data-swapy-item="slot4">
               <img
-                src="public/envelope.png"
-                alt="person"
+                src="/static/emojis/umbrella.png"
+                alt="umb"
                 class="emoji"
               />
               <span>Other Than Work</span>
@@ -173,8 +173,8 @@
           <div class="section-5 item5" data-swapy-slot="spot5">
             <div class="item" data-swapy-item="slot5">
               <img
-                src="public/envelope.png"
-                alt="person"
+                src="/static/emojis/envelope.png"
+                alt="env"
                 class="emoji"
               />
               <span>Contact Here</span>
@@ -185,7 +185,7 @@
           </div>
           <div class="section-7 item7" data-swapy-slot="spot7">
             <div class="item" data-swapy-item="slot7">
-              <img src="public/envelope.png" alt="person" class="emoji" />
+              <img src="/static/emojis/stats.png" alt="stat" class="emoji" />
               <span>Currently</span>
             </div>
           </div>
