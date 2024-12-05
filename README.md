@@ -1,2 +1,2 @@
 # portfolio
-currently under construction thanks ~ royalp
+this is currently under construction thanks ~ royalp
