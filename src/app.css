@@ -1,0 +1,43 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+  font-family: "gsans";
+  src: url("/static/fonts/gsans-reg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gsans";
+  src: url("/static/fonts/gsans-med.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gsans";
+  src: url("/static/fonts/gsans-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html, body {
+  font-family: "gsans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1C1C1C;
+}
