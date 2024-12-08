@@ -5,12 +5,12 @@
   import { TextRevealEffect } from "../src/lib/components/ui/text-reveal/index";
   import { writable } from "svelte/store";
 
-  let person:string="/static/emojis/person.png";
-  let hammer:string="/static/emojis/hammer.png";
-  let laptop:string="/static/emojis/laptop.png";
-  let umbrella:string="/static/emojis/umbrella.png";
-  let envelope:string="/static/emojis/envelope.png";
-  let stats:string="/static/emojis/stats.png";
+  let person: string = "/static/emojis/person.png";
+  let hammer: string = "/static/emojis/hammer.png";
+  let laptop: string = "/static/emojis/laptop.png";
+  let umbrella: string = "/static/emojis/umbrella.png";
+  let envelope: string = "/static/emojis/envelope.png";
+  let stats: string = "/static/emojis/stats.png";
 
   // Define the type with a default empty string for emoji
   interface MarqueeItem {
@@ -21,19 +21,19 @@
 
   // Store to manage marquee components
   export const marqueeItems = writable<MarqueeItem[]>([
-    { id: 1, content: "First Item", emoji: person },
-    { id: 2, content: "Second Item is really the largest item" },
-    { id: 3, content: "This is a new item" },
-    { id: 4, content: "About my projects, those suck" },
-    { id: 5, content: "Contact me anywhere" },
-    { id: 6, content: "Hello, I'm pretty active on LinkedIn" },
-    { id: 7, content: "Can't think of anything else now" },
-    { id: 8, content: "You can always check my instagram" },
-    { id: 9, content: "I don't have one" },
-    { id: 10, content: "I listen to kendrick lamar" },
-    { id: 11, content: "Not really" },
-    { id: 12, content: "Kanye mostly" },
-    { id: 13, content: "And I use arch, btw", emoji: laptop},
+    { id: 0, content: "First Item", emoji: person },
+    { id: 1, content: "Second Item is really the largest item" },
+    { id: 2, content: "This is a new item" },
+    { id: 3, content: "About my projects, those suck" },
+    { id: 4, content: "Contact me anywhere" },
+    { id: 5, content: "Hello, I'm pretty active on LinkedIn" },
+    { id: 6, content: "Can't think of anything else now" },
+    { id: 7, content: "You can always check my instagram" },
+    { id: 8, content: "I don't have one" },
+    { id: 9, content: "I listen to kendrick lamar" },
+    { id: 10, content: "Not really" },
+    { id: 11, content: "Kanye mostly" },
+    { id: 12, content: "And I use arch, btw", emoji: laptop },
   ]);
 
   // Function to add a new item to the marquee
@@ -94,9 +94,9 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
-        delay: 2.2
+        delay: 2.2,
       }
     );
     gsap.fromTo(
@@ -106,7 +106,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
         delay: 2.4,
       }
@@ -118,7 +118,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
         delay: 2.8,
       }
@@ -130,7 +130,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
         delay: 2.6,
       }
@@ -142,7 +142,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
         delay: 3.0,
       }
@@ -154,7 +154,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
         delay: 3.2,
       }
@@ -166,7 +166,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "power3.out",
+        ease: "sine.out",
         stagger: 0.15,
         delay: 3.4,
       }
@@ -201,6 +201,130 @@
         resizeObserver.observe(item);
         checkWidth(item); // Check width on initial load
       }
+    });
+
+    const marqueeContainer = document.querySelector(".marquee-container");
+    const marqueeTrack = document.querySelector(".marquee-track");
+
+    if (marqueeContainer && marqueeTrack) {
+      // Initially hide and position the marquee at the bottom right
+      gsap.set(marqueeContainer, {
+        opacity: 0,
+        //x: '10%',
+        y: "100%",
+      });
+
+      // Create a timeline to animate the marquee after other animations
+      const marqueeTimeline = gsap.timeline();
+
+      marqueeTimeline
+        .to(marqueeContainer, {
+          opacity: 1,
+          x: "0%",
+          y: "0%",
+          duration: 2.3,
+          ease: "power4.inOut",
+          delay: 2.3, // Adjust this delay to match the end of your tile animations
+        })
+        .add(() => {
+          // Start the infinite marquee animation
+          marqueeTrack.classList.add("animate");
+        });
+    }
+
+    let remem = 0;
+    let remem2 = 0;
+    // Hover effect logic
+    const marqueeItems = document.querySelectorAll(".marquee-item");
+
+    marqueeItems.forEach((item) => {
+      item.addEventListener("mouseenter", (event) => {
+        const hItem = event.currentTarget as HTMLElement;
+        const itemId: number = hItem.dataset.id
+          ? parseInt(hItem.dataset.id)
+          : 0;
+        let originalWidth = hItem.offsetWidth;
+        let neww = (originalWidth * 1.3 - originalWidth) / 2;
+
+        // Reference the specific item using its ID
+        const targetElement = document.querySelector(
+          `.marquee-item[data-id="${(itemId + 1) % 25}"]`
+        ) as HTMLElement;
+        const targetElement2 = document.querySelector(
+          `.marquee-item[data-id="${(itemId + 24) % 25}"]`
+        ) as HTMLElement;
+        let width1 = targetElement.offsetWidth;
+        let width2 = targetElement2.offsetWidth;
+        remem = width1;
+        remem2 = width2;
+        // Apply GSAP animation
+        gsap.to(targetElement, {
+          x: neww,
+          //width: width1 - neww + "px", // Adjust the width to match your design
+          duration: 0.01,
+          ease: "elastic.in",
+          zIndex: -1,
+        });
+
+        // Apply GSAP animation
+        gsap.to(targetElement2, {
+          x: -neww,
+          //width: width2 - neww + "px",
+          duration: 0.01,
+          ease: "elastic.in",
+          zIndex: -1,
+        });
+
+        gsap.to(hItem, {
+          scale: 1.3,
+          duration: 0.05,
+          ease: "power3.out",
+          transformOrigin: "bottom",
+        });
+      });
+
+      item.addEventListener("mouseleave", (event) => {
+        const hItem = event.currentTarget as HTMLElement;
+        const itemId: number = hItem.dataset.id
+          ? parseInt(hItem.dataset.id)
+          : 0;
+        let wwidth = hItem.offsetWidth;
+        let neww = (wwidth - wwidth / 1.2) / 2;
+        let neww2 = (wwidth * 1.2 - wwidth) / 2;
+
+        // Reference the specific item using its ID
+        const targetElement = document.querySelector(
+          `.marquee-item[data-id="${(itemId + 1) % 25}"]`
+        );
+        const targetElement2 = document.querySelector(
+          `.marquee-item[data-id="${(itemId + 24) % 25}"]`
+        );
+
+        // Apply GSAP animation
+        gsap.to(targetElement, {
+          x: 0,
+          //width: remem + "px",
+          duration: 0.01,
+          ease: "elastic.out",
+          zIndex: 0,
+        });
+
+        // Apply GSAP animation
+        gsap.to(targetElement2, {
+          x: 0,
+          //width: remem2 + "px",
+          duration: 0.01,
+          ease: "elastic.out",
+          zIndex: 0,
+        });
+
+        gsap.to(hItem, {
+          scale: 1,
+          duration: 0.05,
+          ease: "power3.in",
+          transformOrigin: "bottom",
+        });
+      });
     });
   });
 </script>
@@ -258,19 +382,23 @@
     <div class="marquee-track">
       <div class="marquee">
         {#each $marqueeItems as item (item.id)}
-          <div class="marquee-item">
-            {#if item.emoji}
-              <img src={item.emoji} alt="item emoji" class="emoji" />
-            {/if}
-            <span>{item.content}</span>
+          <div class="marquee-item-wrapper">
+            <div class="marquee-item" data-id={item.id}>
+              {#if item.emoji}
+                <img src={item.emoji} alt="item emoji" class="emoji" />
+              {/if}
+              <span>{item.content}</span>
+            </div>
           </div>
         {/each}
-        {#each $marqueeItems as item (item.id + "duplicate")}
-          <div class="marquee-item">
-            {#if item.emoji}
-              <img src={item.emoji} alt="item emoji" class="emoji" />
-            {/if}
-            <span>{item.content}</span>
+        {#each $marqueeItems as item (item.id)}
+          <div class="marquee-item-wrapper">
+            <div class="marquee-item" data-id={item.id + 13}>
+              {#if item.emoji}
+                <img src={item.emoji} alt="item emoji" class="emoji" />
+              {/if}
+              <span>{item.content}</span>
+            </div>
           </div>
         {/each}
       </div>
@@ -283,7 +411,7 @@
     position: absolute;
     bottom: 10px;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .marquee-track {
@@ -295,10 +423,8 @@
     gap: 10px;
     width: max-content;
     animation: marquee 25s linear infinite;
-  }
-
-  .marquee:hover {
-    animation-play-state: paused;
+    transition: transform 0.3s linear;
+    will-change: transform; /* For better animation performance */
   }
 
   .marquee-item {
@@ -317,6 +443,21 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    transition:
+      transform 0.3s ease-out,
+      margin 0.3s ease-out;
+  }
+
+  .marquee-item-wrapper {
+    display: flex;
+    align-items: flex-end;
+    width: auto;
+    transition: width 0.3s ease-out;
+    overflow: visible;
+  }
+
+  .marquee-item:hover {
+    z-index: 10;
   }
 
   .marquee-item .emoji {
@@ -384,8 +525,8 @@
 
   .container {
     display: grid;
-    grid-template-rows: 345px 345px;
-    grid-template-columns: 345px 345px 345px 155px 250px;
+    grid-template-rows: 31.944vh 31.944vh;
+    grid-template-columns: 17.969vw 17.969vw 17.969vw 8.073vw 13.021vw;
     gap: 30px;
   }
 
