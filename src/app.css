@@ -38,6 +38,61 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-lgt.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-lgt-it.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-reg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-reg-it.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-med.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-med-it.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "jbm";
+  src: url("/static/fonts/jbm-bold-it.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
 html, body {
   font-family: "gsans", sans-serif;
   margin: 0;

@@ -477,7 +477,7 @@
               <div
                 class="item"
                 data-swapy-item="slot4"
-                on:click={() => handleGridClick("spot7")}
+                on:click={() => handleGridClick("spot4")}
                 role="button"
                 tabindex="0"
               >

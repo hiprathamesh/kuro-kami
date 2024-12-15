@@ -154,13 +154,14 @@
       in:fly={{ x: 0, y: 500, duration: 800, delay: 0, easing: cubicOut }}
       out:fly={{ x: 0, y: 500, duration: 800, delay: 0, easing: cubicOut }}
     >
-      <div class="page-content">
+      <div class="page-content p-[40px] pt-[30px] pb-0">
         <button
-          class="close-btn"
+          class="close-btn "
           on:click={() => closePage(id)}
           aria-label="Close page"
-          >×
+          ><hr class="" />
         </button>
+        <button class="h-[45px] w-[45px] bg-[rgba(41,41,41,0.60)] rounded-[8px] absolute top-[30px] right-[30px] cursor-pointer flex justify-center items-center " on:click={() => closePage(id)} aria-label="Close page"><hr class="border-none h-[3.5px] bg-[rgba(255,255,255,0.2)] w-[16px] rounded-full"></button>
         <svelte:component this={component} />
       </div>
     </div>
@@ -196,12 +197,11 @@
 
   .page-content {
     height: 100%;
-    padding: 20px;
     position: relative;
     overflow: hidden;
   }
 
-  .close-btn {
+  /* .close-btn {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -216,5 +216,5 @@
     justify-content: center;
     font-size: 20px;
     z-index: 10;
-  }
+  } */
 </style>
