@@ -3,7 +3,40 @@
   import { createSwapy } from "swapy";
   import gsap from "gsap";
   import { TextRevealEffect } from "../src/lib/components/ui/text-reveal/index";
+  import { GradientAnimation } from "../src/lib/components/ui/gradient/index";
   import { writable } from "svelte/store";
+  import PageManager from "./PageManager.svelte";
+  import AboutPage from "./AboutPage.svelte";
+  import SkillsPage from "./SkillsPage.svelte";
+  import ProjectsPage from "./ProjectsPage.svelte";
+  import OthersPage from "./OthersPage.svelte";
+  import ContactPage from "./ContactPage.svelte";
+  import MisPage from "./MisPage.svelte";
+  import CurrentlyPage from "./CurrentlyPage.svelte";
+
+  let pageManager: PageManager;
+
+  const pageComponents: Record<string, any> = {
+    spot1: AboutPage,
+    spot2: SkillsPage,
+    spot3: ProjectsPage,
+    spot4: OthersPage,
+    spot5: ContactPage,
+    spot6: MisPage,
+    spot7: CurrentlyPage,
+  };
+
+  function handleGridClick(id: string) {
+    console.log("Clicked:", id); // Add debug logging
+    if (pageComponents[id]) {
+      console.log("Opening page:", id); // Add debug logging
+      pageManager?.openPage(id, pageComponents[id]);
+    }
+  }
+  function handleOpenPage(event: CustomEvent<{ id: string; component: any }>) {
+    const { id, component } = event.detail;
+    pageManager.openPage(id, component);
+  }
 
   let person: string = "/static/emojis/person.png";
   let hammer: string = "/static/emojis/hammer.png";
@@ -326,84 +359,207 @@
         });
       });
     });
+    const button = document.querySelector(".button1");
+    const grid1 = document.querySelector(".item1") as HTMLElement;
+    const grid2 = document.querySelector(".item2") as HTMLElement;
+    const grid3 = document.querySelector(".item3") as HTMLElement;
+    const grid4 = document.querySelector(".item4") as HTMLElement;
+    const grid5 = document.querySelector(".item5") as HTMLElement;
+    const grid6 = document.querySelector(".item6") as HTMLElement;
+    const grid7 = document.querySelector(".item7") as HTMLElement;
+    let duration = 0.5;
+    function resetGrid() {
+      const slots = [
+        { slot: "slot1", area: "1/1/2/2" },
+        { slot: "slot2", area: "1/2/2/3" },
+        { slot: "slot3", area: "1/3/3/4" },
+        { slot: "slot4", area: "2/1/3/3" },
+        { slot: "slot5", area: "1/4/2/6" },
+        { slot: "slot6", area: "2/4/3/5" },
+        { slot: "slot7", area: "2/5/3/6" },
+      ];
+
+      slots.forEach(({ slot, area }) => {
+        const item = document.querySelector(`[data-swapy-item="${slot}"]`);
+        if (item) {
+          const parent = item.parentElement;
+          if (parent) {
+            parent.style.gridArea = area;
+          }
+        }
+      });
+    }
+    function resetGridSmoothly() {
+      const slots = [
+        { slot: "slot1", area: "1/1/2/2" },
+        { slot: "slot2", area: "1/2/2/3" },
+        { slot: "slot3", area: "1/3/3/4" },
+        { slot: "slot4", area: "2/1/3/3" },
+        { slot: "slot5", area: "1/4/2/6" },
+        { slot: "slot6", area: "2/4/3/5" },
+        { slot: "slot7", area: "2/5/3/6" },
+      ];
+
+      slots.forEach(({ slot, area }) => {
+        const item = document.querySelector(`[data-swapy-item="${slot}"]`);
+        if (item) {
+          const parent = item.parentElement;
+          if (parent) {
+            gsap.to(parent, {
+              gridArea: area,
+              ease: "power3.out",
+            });
+          }
+        }
+      });
+    }
+
+    if (button) {
+      button.addEventListener("click", resetGrid);
+    }
   });
 </script>
 
 <main>
-  <div class="wrapper">
-    <div class="outer">
-      <TextRevealEffect {words} className="head-first" />
-      <div class="wrapper">
-        <div class="container">
-          <div class="section-1 item1" data-swapy-slot="spot1">
-            <div class="item" data-swapy-item="slot1">
-              <img src="/static/emojis/person.png" alt="person" class="emoji" />
-              <span>About Me</span>
+  <PageManager bind:this={pageManager} />
+  <GradientAnimation>
+    <div class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-50">
+      <div class="outer">
+        <TextRevealEffect {words} className="head-first" />
+        <div class="wrapper">
+          <div class="container">
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div class="section-1 item1" data-swapy-slot="spot1">
+              <div
+                class="item"
+                data-swapy-item="slot1"
+                on:click={() => handleGridClick("spot1")}
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  src="/static/emojis/person.png"
+                  alt="person"
+                  class="emoji"
+                />
+                <span>About Me</span>
+              </div>
             </div>
-          </div>
-          <div class="section-2 item2" data-swapy-slot="spot2">
-            <div class="item" data-swapy-item="slot2">
-              <img src="/static/emojis/hammer.png" alt="ham" class="emoji" />
-              <span>Skills I Can</span>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div class="section-2 item2" data-swapy-slot="spot2">
+              <div
+                class="item"
+                data-swapy-item="slot2"
+                on:click={() => handleGridClick("spot2")}
+                role="button"
+                tabindex="0"
+              >
+                <img src="/static/emojis/hammer.png" alt="ham" class="emoji" />
+                <span>Skills I Can</span>
+              </div>
             </div>
-          </div>
-          <div class="section-3 item3" data-swapy-slot="spot3">
-            <div class="item" data-swapy-item="slot3">
-              <img src="/static/emojis/laptop.png" alt="lap" class="emoji" />
-              <span>My Projects</span>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div class="section-3 item3" data-swapy-slot="spot3">
+              <div
+                class="item"
+                data-swapy-item="slot3"
+                on:click={() => handleGridClick("spot3")}
+                role="button"
+                tabindex="0"
+              >
+                <img src="/static/emojis/laptop.png" alt="lap" class="emoji" />
+                <span>My Projects</span>
+              </div>
             </div>
-          </div>
-          <div class="section-4 item4" data-swapy-slot="spot4">
-            <div class="item" data-swapy-item="slot4">
-              <img src="/static/emojis/umbrella.png" alt="umb" class="emoji" />
-              <span>Other Than Work</span>
+            <div class="section-4 item4" data-swapy-slot="spot4">
+              <!-- svelte-ignore a11y_click_events_have_key_events -->
+              <div
+                class="item"
+                data-swapy-item="slot4"
+                on:click={() => handleGridClick("spot7")}
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  src="/static/emojis/umbrella.png"
+                  alt="umb"
+                  class="emoji"
+                />
+                <span>Other Than Work</span>
+              </div>
             </div>
-          </div>
-          <div class="section-5 item5" data-swapy-slot="spot5">
-            <div class="item" data-swapy-item="slot5">
-              <img src="/static/emojis/envelope.png" alt="env" class="emoji" />
-              <span>Contact Here</span>
+            <div class="section-5 item5" data-swapy-slot="spot5">
+              <!-- svelte-ignore a11y_click_events_have_key_events -->
+              <div
+                class="item"
+                data-swapy-item="slot5"
+                on:click={() => handleGridClick("spot5")}
+                role="button"
+                tabindex="0"
+              >
+                <img
+                  src="/static/emojis/envelope.png"
+                  alt="env"
+                  class="emoji"
+                />
+                <span>Contact Here</span>
+              </div>
             </div>
-          </div>
-          <div class="section-6 item6" data-swapy-slot="spot6">
-            <div class="item" data-swapy-item="slot6"></div>
-          </div>
-          <div class="section-7 item7" data-swapy-slot="spot7">
-            <div class="item" data-swapy-item="slot7">
-              <img src="/static/emojis/stats.png" alt="stat" class="emoji" />
-              <span>Currently</span>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div class="section-6 item6" data-swapy-slot="spot6">
+              <div
+                class="item"
+                data-swapy-item="slot6"
+                on:click={() => handleGridClick("spot6")}
+                role="button"
+                tabindex="0"
+              ></div>
+            </div>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div class="section-7 item7" data-swapy-slot="spot7">
+              <div
+                class="item"
+                data-swapy-item="slot7"
+                on:click={() => handleGridClick("spot7")}
+                role="button"
+                tabindex="0"
+              >
+                <img src="/static/emojis/stats.png" alt="stat" class="emoji" />
+                <span>Currently</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="marquee-container">
-    <div class="marquee-track">
-      <div class="marquee">
-        {#each $marqueeItems as item (item.id)}
+    <div class="marquee-container z-50">
+      <div class="marquee-track">
+        <div class="marquee">
+          {#each $marqueeItems as item (item.id)}
           <div class="marquee-item-wrapper">
             <div class="marquee-item" data-id={item.id}>
               {#if item.emoji}
-                <img src={item.emoji} alt="item emoji" class="emoji" />
+              <img src={item.emoji} alt="item emoji" class="emoji" />
               {/if}
               <span>{item.content}</span>
             </div>
           </div>
-        {/each}
-        {#each $marqueeItems as item (item.id)}
+          {/each}
+          {#each $marqueeItems as item (item.id)}
           <div class="marquee-item-wrapper">
             <div class="marquee-item" data-id={item.id + 13}>
               {#if item.emoji}
-                <img src={item.emoji} alt="item emoji" class="emoji" />
+              <img src={item.emoji} alt="item emoji" class="emoji" />
               {/if}
               <span>{item.content}</span>
             </div>
           </div>
-        {/each}
+          {/each}
+        </div>
       </div>
     </div>
-  </div>
+  </GradientAnimation>
 </main>
 
 <style>
