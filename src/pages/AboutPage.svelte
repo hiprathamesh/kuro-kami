@@ -6,7 +6,7 @@
 <div class="page-content" transition:fade>
   <h2>About Me</h2>
   <div class="content">
-    <!-- Your about content here -->
+    
   </div>
 </div>
 

@@ -6,13 +6,13 @@
   import { GradientAnimation } from "../src/lib/components/ui/gradient/index";
   import { writable } from "svelte/store";
   import PageManager from "./PageManager.svelte";
-  import AboutPage from "./AboutPage.svelte";
-  import SkillsPage from "./SkillsPage.svelte";
-  import ProjectsPage from "./ProjectsPage.svelte";
-  import OthersPage from "./OthersPage.svelte";
-  import ContactPage from "./ContactPage.svelte";
-  import MisPage from "./MisPage.svelte";
-  import CurrentlyPage from "./CurrentlyPage.svelte";
+  import AboutPage from "./pages/AboutPage.svelte";
+  import SkillsPage from "./pages/SkillsPage.svelte";
+  import ProjectsPage from "./pages/ProjectsPage.svelte";
+  import OthersPage from "./pages/OthersPage.svelte";
+  import ContactPage from "./pages/ContactPage.svelte";
+  import MisPage from "./pages/MisPage.svelte";
+  import CurrentlyPage from "./pages/CurrentlyPage.svelte";
 
   let pageManager: PageManager;
 
