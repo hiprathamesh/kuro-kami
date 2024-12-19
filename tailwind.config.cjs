@@ -8,6 +8,7 @@ module.exports = {
       animation: {
         // ...other animations
         first: "moveVertical 30s ease infinite",
+        firsty: "moveVertical 15s ease",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
@@ -39,13 +40,7 @@ module.exports = {
         },
         moveVertical: {
           "0%": {
-            transform: "translateY(-50%)",
-          },
-          "50%": {
-            transform: "translateY(50%)",
-          },
-          "100%": {
-            transform: "translateY(-50%)",
+            transform: "translateY(80%)",
           },
         },
       },

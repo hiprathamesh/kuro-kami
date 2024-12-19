@@ -1,8 +1,13 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import type { SvelteComponent } from "svelte";
+  import SkillsPage from "./SkillsPage.svelte";
+  import OthersPage from "./OthersPage.svelte";
+  let { openPage = (id: string, component: typeof SvelteComponent) => {} } =
+    $props();
 </script>
 
-<div class="page-content" transition:fade>
+<div class="page-content" id="pagee" transition:fade>
   <div class="flex items-end mb-[30px]">
     <img
       src="/static/emojis/person.png"
@@ -40,14 +45,12 @@
       </p>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
-    <div class="content">
-      <p class="page-text">
-        I am a designer line here and more. Project boolean italic edit
-        strikethrough device component community fill. Italic selection project
-        reesizing flows. Thumbnail auto scale text boolean link strikethrough
-        link italic stroke. Pixel font flows follower team fill.
-      </p>
-    </div>
+    <p class="page-text">
+      I am a designer line here and more. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
 
     <div class="flex gap-[20px]">
       <div class="justify-center flex w-fit flex-col">
@@ -60,13 +63,110 @@
       </div>
     </div>
 
-    <div class="content mt-[60px]">
-      <p class="page-text">I am a designer, line here and more and more new.</p>
+    <div class="flex gap-[15px] items-baseline mt-[40px]">
+      <p class="page-text">Interest in Programming and Technology at</p>
+      <div
+        class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      >
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <span class="font-normal text-[14px] text-[#4C86FF]" onclick={() => openPage("spot4", OthersPage)}>Other Than Work</span>
+      </div>
+    </div>
+    <hr class="separator mt-[30px] mb-[30px]" />
+    <p class="page-text">College and Village here maybe idk. Project boolean</p>
+    <div class="mt-[30px] flex justify-center gap-[40px]">
+      <div>
+        <div
+        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">C++</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">Java</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">Python</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">Kotlin</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">C</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-[15px] items-baseline mt-[40px] mb-[80px]">
+      <p class="page-text">Interest in Programming and Technology at</p>
+      <div
+        class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      >
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <span class="font-normal text-[14px] text-[#4C86FF]" onclick={() => openPage("spot2", SkillsPage)}>Skills I Can</span>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+  .dot-not {
+    background-color: rgba(76, 133, 255, 0.15); /* Blue color */
+    border-radius: 50%; /* Makes the div a perfect circle */
+    border: 0.001px solid rgba(76, 133, 255);
+  }
+  .dot {
+    width: 6px; /* Same size for all dots */
+    height: 6px;
+    background-color: #4c86ff; /* Blue color */
+    border-radius: 50%; /* Makes the div a perfect circle */
+  }
   .page-text {
     color: #d0d0d0;
     font-weight: 300;
@@ -109,7 +209,7 @@
 
   .scrollable-section {
     max-height: calc(100% - 200px); /* Subtract the height of the pagination */
-    overflow: auto; /* Enable scrolling */
+    overflow: auto;
   }
 
   .scrollable-section::-webkit-scrollbar {

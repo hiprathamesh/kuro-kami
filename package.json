@@ -24,6 +24,8 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "paper": "^0.12.18",
     "svelte-motion": "^0.12.2",
     "swapy": "^0.4.2",
     "tailwind-merge": "^2.5.5"

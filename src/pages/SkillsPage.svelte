@@ -1,5 +1,9 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import type { SvelteComponent } from "svelte";
+  import CurrentlyPage from "./CurrentlyPage.svelte";
+  let { openPage = (id: string, component: typeof SvelteComponent) => {} } =
+    $props();
 </script>
 
 <div class="page-content" transition:fade>
@@ -229,20 +233,106 @@
       italic stroke. Pixel font flows follower team fill.
     </p>
 
-    <div class="flex gap-[20px]">
-      <div class="justify-center flex w-fit flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
-      </div>
-      <div class="justify-center flex w-fit flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+    <div class="flex gap-[15px] items-baseline mt-[20px]">
+      <p class="page-text">Interest in Programming and Technology at</p>
+      <div
+        class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      >
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <span class="font-normal text-[14px] text-[#4C86FF]" onclick={() => openPage("spot7", CurrentlyPage)}>Currently</span>
       </div>
     </div>
 
-    <div class="content mt-[60px]">
-      <p class="page-text">I am a designer, line here and more and more new.</p>
+    <div class="justify-center flex w-fit flex-col">
+      <div class="image-placeholder h-[200px]"></div>
+      <span class="caption">At my second trip in college.</span>
     </div>
+    <p class="page-text mt-[30px]">
+      Interest in Programming and Technology. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
+    <hr class="separator mt-[40px] mb-[40px]" />
+    <p class="page-text">
+      Interest in Programming and Technology. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
+    <div class="flex justify-between mt-[40px] items-center">
+      <div class="flex gap-[15px] items-end">
+        <p class="page-text-h font-bold text-[16px]">Design Lead at</p>
+        <div
+          class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        >
+          <span class="font-normal text-[14px] text-[#4C86FF]">Currently</span>
+        </div>
+      </div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      ></div>
+    </div>
+    <div class="mt-[15px] p-0 h-fit">
+      <span class="font-medium text-[11px] text-[#808080]">
+        ON SITE, FEB‘23-JAN‘24
+      </span>
+    </div>
+    <p class="page-text mt-[10px]">
+      Interest in Programming and Technology. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
+    <div class="flex justify-between mt-[60px] items-center">
+      <div class="flex gap-[15px] items-end">
+        <p class="page-text-h font-bold text-[16px]">Design Lead at</p>
+        <div
+          class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        >
+          <span class="font-normal text-[14px] text-[#4C86FF]">Currently</span>
+        </div>
+      </div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      ></div>
+    </div>
+    <div class="mt-[15px] p-0 h-fit">
+      <span class="font-medium text-[11px] text-[#808080]">
+        ON SITE, FEB‘23-JAN‘24
+      </span>
+    </div>
+    <p class="page-text mt-[10px]">
+      Interest in Programming and Technology. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
+    <div class="flex justify-between mt-[60px] items-center">
+      <div class="flex gap-[15px] items-end">
+        <p class="page-text-h font-bold text-[16px]">Design Lead at</p>
+        <div
+          class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        >
+          <span class="font-normal text-[14px] text-[#4C86FF]">Currently</span>
+        </div>
+      </div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      ></div>
+    </div>
+    <div class="mt-[15px] p-0 h-fit">
+      <span class="font-medium text-[11px] text-[#808080]">
+        ON SITE, FEB‘23-JAN‘24
+      </span>
+    </div>
+    <p class="page-text mt-[10px] mb-[80px]">
+      Interest in Programming and Technology. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
   </div>
 </div>
 
@@ -265,6 +355,12 @@
     font-size: 11.5px;
     font-family: jbm;
     line-height: 1.75;
+  }
+  .page-text-h {
+    color: #d0d0d0;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: jbm;
   }
   .separator {
     border: none; /* Removes default border */
@@ -301,7 +397,7 @@
 
   .scrollable-section {
     max-height: calc(100% - 200px); /* Subtract the height of the pagination */
-    overflow: auto; /* Enable scrolling */
+    overflow: auto;
   }
 
   .scrollable-section::-webkit-scrollbar {

@@ -5,7 +5,7 @@
   import { TextRevealEffect } from "../src/lib/components/ui/text-reveal/index";
   import { GradientAnimation } from "../src/lib/components/ui/gradient/index";
   import { writable } from "svelte/store";
-  import PageManager from "./PageManager.svelte";
+  import PageManager from "./components/PageManager.svelte";
   import AboutPage from "./pages/AboutPage.svelte";
   import SkillsPage from "./pages/SkillsPage.svelte";
   import ProjectsPage from "./pages/ProjectsPage.svelte";
@@ -13,6 +13,11 @@
   import ContactPage from "./pages/ContactPage.svelte";
   import MisPage from "./pages/MisPage.svelte";
   import CurrentlyPage from "./pages/CurrentlyPage.svelte";
+  import Stars from "./components/Stars.svelte";
+  import { magneticHover } from './components/magneticHover';
+  import {tooltip} from "./components/tooltip";
+
+
 
   let pageManager: PageManager;
 
@@ -27,10 +32,13 @@
   };
 
   function handleGridClick(id: string) {
-    console.log("Clicked:", id); // Add debug logging
+    console.log("Clicked ID:", id);
     if (pageComponents[id]) {
-      console.log("Opening page:", id); // Add debug logging
+      console.log("Found component for ID:", id);
+      console.log("Opening page:", id, pageComponents[id]);
       pageManager?.openPage(id, pageComponents[id]);
+    } else {
+      console.error("No component found for ID:", id);
     }
   }
   function handleOpenPage(event: CustomEvent<{ id: string; component: any }>) {
@@ -93,6 +101,7 @@
   }
   let swapy;
   const words = `Hey, Prathamesh here!`;
+  let ani = "back.out(1.5)";
   onMount(() => {
     // Ensure the container exists before initializing Swapy
     const container = document.querySelector(
@@ -127,7 +136,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 2.2,
       }
@@ -139,7 +148,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 2.4,
       }
@@ -151,7 +160,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 2.8,
       }
@@ -163,7 +172,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 2.6,
       }
@@ -175,7 +184,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 3.0,
       }
@@ -187,7 +196,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 3.2,
       }
@@ -199,7 +208,7 @@
         opacity: 1, // Ensure the tiles are visible after animation
         y: 0, // Set them back to their normal position
         duration: 0.8,
-        ease: "sine.out",
+        ease: ani,
         stagger: 0.15,
         delay: 3.4,
       }
@@ -368,27 +377,6 @@
     const grid6 = document.querySelector(".item6") as HTMLElement;
     const grid7 = document.querySelector(".item7") as HTMLElement;
     let duration = 0.5;
-    function resetGrid() {
-      const slots = [
-        { slot: "slot1", area: "1/1/2/2" },
-        { slot: "slot2", area: "1/2/2/3" },
-        { slot: "slot3", area: "1/3/3/4" },
-        { slot: "slot4", area: "2/1/3/3" },
-        { slot: "slot5", area: "1/4/2/6" },
-        { slot: "slot6", area: "2/4/3/5" },
-        { slot: "slot7", area: "2/5/3/6" },
-      ];
-
-      slots.forEach(({ slot, area }) => {
-        const item = document.querySelector(`[data-swapy-item="${slot}"]`);
-        if (item) {
-          const parent = item.parentElement;
-          if (parent) {
-            parent.style.gridArea = area;
-          }
-        }
-      });
-    }
     function resetGridSmoothly() {
       const slots = [
         { slot: "slot1", area: "1/1/2/2" },
@@ -400,22 +388,56 @@
         { slot: "slot7", area: "2/5/3/6" },
       ];
 
-      slots.forEach(({ slot, area }) => {
-        const item = document.querySelector(`[data-swapy-item="${slot}"]`);
-        if (item) {
-          const parent = item.parentElement;
-          if (parent) {
-            gsap.to(parent, {
-              gridArea: area,
-              ease: "power3.out",
-            });
+      // Create a timeline for the reset animation
+      const resetTimeline = gsap.timeline();
+
+      // First, fade out all items
+      resetTimeline.to(".section", {
+        opacity: 0,
+        duration: 0.4,
+        ease: "power1.in",
+      });
+
+      // Then reset grid positions
+      resetTimeline.add(() => {
+        slots.forEach(({ slot, area }) => {
+          const items = document.querySelector(
+            `[data-swapy-item="${slot}"]`
+          ) as HTMLElement;
+
+          const gridContainer = document.querySelector(
+            "[data-grid-container]"
+          ) as HTMLElement;
+
+          if (items && gridContainer) {
+            const itemParent = items.parentElement as HTMLElement;
+
+            itemParent.style.gridArea = area;
+            itemParent.style.position = "static";
+            itemParent.style.top = "auto";
+            itemParent.style.left = "auto";
+            itemParent.style.width = "auto";
+            itemParent.style.height = "auto";
           }
-        }
+        });
+      });
+
+      // Finally, fade in the items
+      resetTimeline.to(".section", {
+        delay: 0.6,
+        opacity: 1,
+        duration: 0.4,
+        ease: "power1.in",
       });
     }
-
     if (button) {
-      button.addEventListener("click", resetGrid);
+      console.log("Button found, adding event listener");
+      button.addEventListener("click", (e) => {
+        console.log("Button clicked");
+        resetGridSmoothly();
+      });
+    } else {
+      console.error("Button not found");
     }
   });
 </script>
@@ -423,20 +445,25 @@
 <main>
   <PageManager bind:this={pageManager} />
   <GradientAnimation>
-    <div class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-50">
+    <div
+      class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-50"
+    >
       <div class="outer">
-        <TextRevealEffect {words} className="head-first" />
+        <div class="button1 cursor-pointer">
+          <TextRevealEffect {words} className="head-first" />
+        </div>
         <div class="wrapper">
-          <div class="container">
+          <div class="container popo" data-grid-container>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div class="section-1 item1" data-swapy-slot="spot1">
+            <div class="section item1" data-swapy-slot="spot1">
               <div
-                class="item"
+                class="item z-20"
                 data-swapy-item="slot1"
-                on:click={() => handleGridClick("spot1")}
+                onclick={() => handleGridClick("spot1")}
                 role="button"
                 tabindex="0"
+                use:magneticHover={{ intensity: 15, scale: 1.02 }}
               >
                 <img
                   src="/static/emojis/person.png"
@@ -444,42 +471,96 @@
                   class="emoji"
                 />
                 <span>About Me</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/webp/about-me-1.webp"
+                    class="absolute bottom-0 right-0 max-h-[85%]"
+                    draggable="false"
+                  />
+                  <source
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/jpg/about-me-1.png"
+                    class="absolute bottom-0 right-0 max-h-[85%]"
+                    draggable="false"
+                  />
+                  <source type="image/webp" srcset="/static/tilePhotos/webp/about-me.webp" class="absolute bottom-0 right-0 max-h-[85%]" draggable="false"/>
+                  <img src="/static/tilePhotos/jpg/about-me.png" alt="about me" class="absolute bottom-0 right-0 max-h-[85%]" draggable="false"/>
+                </picture>
               </div>
             </div>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <div class="section-2 item2" data-swapy-slot="spot2">
+            <div class="section item2" data-swapy-slot="spot2">
               <div
-                class="item"
+                class="item z-20"
                 data-swapy-item="slot2"
-                on:click={() => handleGridClick("spot2")}
+                onclick={() => handleGridClick("spot2")}
                 role="button"
                 tabindex="0"
+                use:magneticHover={{ intensity: 15, scale: 1.02 }}
               >
                 <img src="/static/emojis/hammer.png" alt="ham" class="emoji" />
                 <span>Skills I Can</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/webp/skills-1.webp"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <source
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/jpg/skills-1.png"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <source type="image/webp" srcset="/static/tilePhotos/webp/skills.webp" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                  <img src="/static/tilePhotos/jpg/skills.png" alt="about me" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                </picture>
               </div>
             </div>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <div class="section-3 item3" data-swapy-slot="spot3">
+            <div class="section item3" data-swapy-slot="spot3">
               <div
-                class="item"
+                class="item z-20"
                 data-swapy-item="slot3"
-                on:click={() => handleGridClick("spot3")}
+                onclick={() => handleGridClick("spot3")}
                 role="button"
                 tabindex="0"
+                use:magneticHover={{ intensity: 15, scale: 1.02 }}
               >
                 <img src="/static/emojis/laptop.png" alt="lap" class="emoji" />
                 <span>My Projects</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/webp/projects-1.webp"
+                    class="absolute bottom-0 right-0 max-h-[100%]"
+                    draggable="false"
+                  />
+                  <source
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/jpg/projects-1.png"
+                    class="absolute bottom-0 right-0 max-h-[100%]"
+                    draggable="false"
+                  />
+                  <source type="image/webp" srcset="/static/tilePhotos/webp/projects.webp" class="absolute bottom-0 right-0 max-h-[100%]" draggable="false"/>
+                  <img src="/static/tilePhotos/jpg/projects.png" alt="about me" class="absolute bottom-0 right-0 max-h-[100%]" draggable="false"/>
+                </picture>
               </div>
             </div>
-            <div class="section-4 item4" data-swapy-slot="spot4">
+            <div class="section item4" data-swapy-slot="spot4">
               <!-- svelte-ignore a11y_click_events_have_key_events -->
               <div
-                class="item"
+                class="item z-20"
                 data-swapy-item="slot4"
-                on:click={() => handleGridClick("spot4")}
+                onclick={() => handleGridClick("spot4")}
                 role="button"
                 tabindex="0"
+                use:magneticHover={{ intensity: 15, scale: 1.02 }}
               >
                 <img
                   src="/static/emojis/umbrella.png"
@@ -487,46 +568,102 @@
                   class="emoji"
                 />
                 <span>Other Than Work</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/webp/others-1.webp"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <source
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/jpg/others-1.png"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <source type="image/webp" srcset="/static/tilePhotos/webp/others.webp" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                  <img src="/static/tilePhotos/jpg/others.png" alt="about me" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                </picture>
               </div>
             </div>
-            <div class="section-5 item5" data-swapy-slot="spot5">
+            <div class="section item5" data-swapy-slot="spot5">
               <!-- svelte-ignore a11y_click_events_have_key_events -->
               <div
                 class="item"
                 data-swapy-item="slot5"
-                on:click={() => handleGridClick("spot5")}
+                onclick={() => handleGridClick("spot5")}
                 role="button"
                 tabindex="0"
+                use:magneticHover={{ intensity: 15, scale: 1.02 }}
               >
                 <img
                   src="/static/emojis/envelope.png"
-                  alt="env"
+                  alt="envelope"
                   class="emoji"
                 />
                 <span>Contact Here</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/webp/contact-1.webp"
+                    class="absolute bottom-0 right-0 max-h-[95%]"
+                    draggable="false"
+                  />
+                  <source
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/jpg/contact-1.png"
+                    class="absolute bottom-0 right-0 max-h-[95%]"
+                    draggable="false"
+                  />
+                  <source type="image/webp" srcset="/static/tilePhotos/webp/contact.webp" class="absolute bottom-0 right-0 max-h-[95%]" draggable="false"/>
+                  <img src="/static/tilePhotos/jpg/contact.png" alt="about me" class="absolute bottom-0 right-0 max-h-[95%]" draggable="false"/>
+                </picture>
               </div>
             </div>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <div class="section-6 item6" data-swapy-slot="spot6">
+            <div class="section item6" data-swapy-slot="spot6">
               <div
-                class="item"
+                class="item-star"
                 data-swapy-item="slot6"
-                on:click={() => handleGridClick("spot6")}
+                onclick={() => handleGridClick("spot6")}
                 role="button"
                 tabindex="0"
-              ></div>
+                use:magneticHover={{ intensity: 50, scale: 0.95 }}
+              >
+                <Stars starCount={65} backgroundColor="rgba(41,41,41,1)" />
+              </div>
             </div>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <div class="section-7 item7" data-swapy-slot="spot7">
+            <div class="section item7" data-swapy-slot="spot7">
               <div
                 class="item"
                 data-swapy-item="slot7"
-                on:click={() => handleGridClick("spot7")}
+                onclick={() => handleGridClick("spot7")}
                 role="button"
                 tabindex="0"
+                use:magneticHover={{ intensity: 15, scale: 1.02 }}
               >
                 <img src="/static/emojis/stats.png" alt="stat" class="emoji" />
                 <span>Currently</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/webp/currently-1.webp"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <source
+                    media="(-webkit-min-device-pixel-ratio: 1.5)"
+                    srcset="/static/tilePhotos/jpg/currently-1.png"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <source type="image/webp" srcset="/static/tilePhotos/webp/currently.webp" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                  <img src="/static/tilePhotos/jpg/currently.png" alt="about me" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                </picture>
               </div>
             </div>
           </div>
@@ -537,24 +674,24 @@
       <div class="marquee-track">
         <div class="marquee">
           {#each $marqueeItems as item (item.id)}
-          <div class="marquee-item-wrapper">
-            <div class="marquee-item" data-id={item.id}>
-              {#if item.emoji}
-              <img src={item.emoji} alt="item emoji" class="emoji" />
-              {/if}
-              <span>{item.content}</span>
+            <div class="marquee-item-wrapper">
+              <div class="marquee-item" data-id={item.id}>
+                {#if item.emoji}
+                  <img src={item.emoji} alt="item emoji" class="emoji" />
+                {/if}
+                <span>{item.content}</span>
+              </div>
             </div>
-          </div>
           {/each}
           {#each $marqueeItems as item (item.id)}
-          <div class="marquee-item-wrapper">
-            <div class="marquee-item" data-id={item.id + 13}>
-              {#if item.emoji}
-              <img src={item.emoji} alt="item emoji" class="emoji" />
-              {/if}
-              <span>{item.content}</span>
+            <div class="marquee-item-wrapper">
+              <div class="marquee-item" data-id={item.id + 13}>
+                {#if item.emoji}
+                  <img src={item.emoji} alt="item emoji" class="emoji" />
+                {/if}
+                <span>{item.content}</span>
+              </div>
             </div>
-          </div>
           {/each}
         </div>
       </div>
@@ -585,11 +722,12 @@
 
   .marquee-item {
     max-width: 200px;
+    gap: 5px;
     display: flex;
     align-items: center;
     padding: 15px 25px;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     color: white;
     border-radius: 10px;
     background-color: rgba(41, 41, 41, 0.5);
@@ -665,6 +803,22 @@
     color: white;
     border-radius: 32px;
     background-color: rgba(41, 41, 41, 0.5);
+    border: 1.2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    flex: 1;
+    overflow: hidden; /* Prevent content from overflowing */
+    white-space: nowrap; /* Force text to stay on one line */
+    text-overflow: ellipsis; /* Add "..." when text overflows */
+  }
+  .item-star {
+    opacity: 0.5;
+    display: flex;
+    padding: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    border-radius: 32px;
+    background-color: rgba(41, 41, 41, 0);
     border: 1.2px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(16px);
     flex: 1;

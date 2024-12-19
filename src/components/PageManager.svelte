@@ -2,8 +2,18 @@
 
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
-  import { cubicOut } from "svelte/easing";
+  import {
+    backOut,
+    cubicOut,
+    expoOut,
+    quadOut,
+    quintOut,
+    sineOut,
+  } from "svelte/easing";
   import type { SvelteComponent } from "svelte";
+  import gsap from "gsap";
+  import { on } from "svelte/events";
+  import {tooltip} from "./tooltip";
 
   interface Page {
     id: string;
@@ -23,9 +33,10 @@
 
   function updatePositions(): void {
     const totalWidth = window.innerWidth - 2 * SIDE_MARGIN;
-    const overlap = openPages.length > 1 
-      ? (openPages.length * PAGE_WIDTH - totalWidth) / (openPages.length - 1) 
-      : 0;
+    const overlap =
+      openPages.length > 1
+        ? (openPages.length * PAGE_WIDTH - totalWidth) / (openPages.length - 1)
+        : 0;
 
     if (openPages.length === 1) {
       const centerPosition = (window.innerWidth - PAGE_WIDTH) / 2;
@@ -41,7 +52,7 @@
 
   function calculatePositions(): Page[] {
     if (openPages.length === 0) return [];
-    
+
     const totalWidth = window.innerWidth - 2 * SIDE_MARGIN;
     const overlap =
       openPages.length > 1
@@ -49,10 +60,12 @@
         : 0;
 
     if (openPages.length === 1) {
-      return [{
-        ...openPages[0],
-        left: (window.innerWidth - PAGE_WIDTH) / 2
-      }];
+      return [
+        {
+          ...openPages[0],
+          left: (window.innerWidth - PAGE_WIDTH) / 2,
+        },
+      ];
     }
 
     let nextLeft = SIDE_MARGIN;
@@ -62,57 +75,40 @@
       return { ...page, left: currentLeft };
     });
   }
-  function calculatePositionsClose(): Page[] {
-    const num = openPages.length;
-    const totalWidth = window.innerWidth - 2 * SIDE_MARGIN;
-    const overlap =
-      openPages.length > 1
-        ? (openPages.length * PAGE_WIDTH - totalWidth) / (openPages.length - 1)
-        : 0;
-
-    // Start assigning positions from index 0
-    let nextLeft = SIDE_MARGIN;
-    if (openPages.length === 1) {
-      openPages[0].left = (window.innerWidth - PAGE_WIDTH) / 2;
-      return openPages;
-    }
-
-    return openPages.map((page) => {
-      const currentLeft = nextLeft; // Assign the current position to this page
-      nextLeft += PAGE_WIDTH - overlap; // Calculate the position for the next page
-
-      return { ...page, left: currentLeft };
-    });
-  }
 
   // Open a new page
-  export function openPage(id: string, component: typeof SvelteComponent): void {
-    const existingPage = openPages.find(p => p.id === id);
+  export function openPage(
+    id: string,
+    component: typeof SvelteComponent
+  ): void {
+    const existingPage = openPages.find((p) => p.id === id);
     if (existingPage) {
       setActivePage(id);
       return;
     }
 
-    openPages = [...openPages, {
-      id,
-      component,
-      zIndex: openPages.length + 1,
-      left: 0 // Initial position will be updated
-    }];
-    
+    openPages = [
+      ...openPages,
+      {
+        id,
+        component,
+        zIndex: openPages.length + 1,
+        left: 0, // Initial position will be updated
+      },
+    ];
+
     updatePositions();
     activePageId = id;
   }
 
   function closePage(id: string): void {
-    openPages = openPages.filter(p => p.id !== id);
+    openPages = openPages.filter((p) => p.id !== id);
     updatePositions();
-    
+
     if (activePageId === id) {
       activePageId = openPages[openPages.length - 1]?.id || null;
     }
   }
-
 
   // Set active page and update z-index
   function setActivePage(id: string): void {
@@ -131,6 +127,30 @@
   }
   let calculatedPositions = calculatePositions();
 
+  function animatePage(id: string): void {
+    const pageElement = document.querySelector(`.page[data-page-id="${id}"]`);
+    console.log("Page Element:", pageElement);
+    if (pageElement) {
+      gsap.fromTo(
+        pageElement,
+        { y: 0 }, // Start from the original position
+        {
+          y: -20, // Move up by 20px
+          duration: 0.3, // Duration of the upward movement
+          ease: "power4.out", // Fast start, decelerates towards the end
+          onComplete: () => {
+            // Translate back down
+            gsap.to(pageElement, {
+              y: 0, // Return to original position
+              duration: 0.5,
+              ease: "power4.out", // Smooth and elastic-like return
+            });
+          },
+        }
+      );
+    }
+  }
+
   $: {
     console.log("Reactive openPages triggered:", openPages);
     calculatedPositions = calculatePositions();
@@ -143,6 +163,7 @@
   {#each openPages as { id, component, left, zIndex } (id)}
     <div
       class="page"
+      data-page-id={id}
       role="region"
       aria-label="Page"
       style="
@@ -150,19 +171,30 @@
           top: {TOP_MARGIN}px;
           z-index: {zIndex};
         "
-      on:mouseenter={() => handleMouseEnter(id)}
-      in:fly={{ x: 0, y: 500, duration: 800, delay: 0, easing: cubicOut }}
-      out:fly={{ x: 0, y: 500, duration: 800, delay: 0, easing: cubicOut }}
+      on:mouseenter={() => {
+        handleMouseEnter(id);
+        animatePage(id);
+      }}
+      in:fly={{ x: 0, y: 200, duration: 600, delay: 0, easing: quintOut }}
+      out:fly={{ x: 0, y: 200, duration: 600, delay: 0, easing: cubicOut }}
     >
-      <div class="page-content p-[40px] pt-[30px] pb-0">
+      <div class="page-content px-[40px] pt-[30px]" id="page-content">
         <button
-          class="close-btn "
+          class="close-btn"
           on:click={() => closePage(id)}
           aria-label="Close page"
           ><hr class="" />
         </button>
-        <button class="h-[45px] w-[45px] bg-[rgba(41,41,41,0.60)] rounded-[8px] absolute top-[30px] right-[30px] cursor-pointer flex justify-center items-center " on:click={() => closePage(id)} aria-label="Close page"><hr class="border-none h-[3.5px] bg-[rgba(255,255,255,0.2)] w-[16px] rounded-full"></button>
-        <svelte:component this={component} />
+        <button
+          class="h-[45px] w-[45px] bg-[rgba(41,41,41,0.60)] rounded-[8px] absolute top-[30px] right-[30px] cursor-pointer flex justify-center items-center"
+          on:click={() => closePage(id)}
+          aria-label="Close page"
+          use:tooltip={{ text: "Minimize", position: "top" }}
+          ><hr
+            class="border-none h-[3.5px] bg-[rgba(255,255,255,0.2)] w-[16px] rounded-full"
+          /></button
+        >
+        <svelte:component this={component} {openPage} {closePage} />
       </div>
     </div>
   {/each}

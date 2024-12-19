@@ -23,46 +23,120 @@
       reesizing flows. Thumbnail auto scale text boolean link strikethrough link
       italic stroke. Pixel font flows follower team fill.
     </p>
-
-    <div class="justify-center flex w-fit flex-col">
-      <div class="image-placeholder"></div>
-      <span class="caption">At my second trip in college.</span>
-    </div>
-
-    <div class="content mt-[40px]">
-      <p class="page-text">
-        College and Village here maybe idk. Project boolean italic edit
-        strikethrough device component community fill. Italic selection project
-        reesizing flows. Thumbnail auto scale text boolean link strikethrough
-        link italic stroke. Pixel font flows follower team fill. College and
-        Village here maybe idk. Project boolean italic edit strikethrough device
-        component community fill. Italic selection project reesizing flows.
-      </p>
+    <div class="flex justify-between mt-[30px] items-center">
+      <div class="flex gap-[10px] items-end">
+        <div class="flex items-end">
+          <img
+            src="/static/emojis/stats.png"
+            alt="stat"
+            class="emoji h-[25px] mr-[8px]"
+          />
+          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+            >Codeforces- Pupil (1268)</span
+          >
+        </div>
+        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+          >last updated: July 9th, 2023</span
+        >
+      </div>
+      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
-    <div class="content">
-      <p class="page-text">
-        I am a designer line here and more. Project boolean italic edit
-        strikethrough device component community fill. Italic selection project
-        reesizing flows. Thumbnail auto scale text boolean link strikethrough
-        link italic stroke. Pixel font flows follower team fill.
-      </p>
-    </div>
-
-    <div class="flex gap-[20px]">
-      <div class="justify-center flex w-fit flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+    <div class="flex justify-between items-center">
+      <div class="flex gap-[10px] items-end">
+        <div class="flex items-end">
+          <img
+            src="/static/emojis/stats.png"
+            alt="stat"
+            class="emoji h-[25px] mr-[8px]"
+          />
+          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+            >CodeChef- 3* (1730)</span
+          >
+        </div>
+        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+          >last updated: July 9th, 2023</span
+        >
       </div>
-      <div class="justify-center flex w-fit flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+    </div>
+    <hr class="separator mt-[30px] mb-[30px]" />
+    <div class="flex justify-between items-center">
+      <div class="flex gap-[10px] items-end">
+        <div class="flex items-end">
+          <img
+            src="/static/emojis/stats.png"
+            alt="stat"
+            class="emoji h-[25px] mr-[8px]"
+          />
+          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+            >LeetCode- Knight (1268)</span
+          >
+        </div>
+        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+          >last updated: July 9th, 2023</span
+        >
       </div>
+      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
-
-    <div class="content mt-[60px]">
-      <p class="page-text">I am a designer, line here and more and more new.</p>
+    <hr class="separator mt-[30px] mb-[30px]" />
+    <div class="flex justify-between items-center">
+      <div class="flex gap-[10px] items-end">
+        <div class="flex items-end">
+          <img
+            src="/static/emojis/stats.png"
+            alt="stat"
+            class="emoji h-[25px] mr-[8px]"
+          />
+          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+            >Cumulative GPA- 8.41</span
+          >
+        </div>
+        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+          >last updated: July 9th, 2023</span
+        >
+      </div>
+      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
+    <hr class="separator mt-[30px] mb-[30px]" />
+    <div class="flex justify-between items-center">
+      <div class="flex gap-[10px] items-end">
+        <div class="flex items-end">
+          <img
+            src="/static/emojis/stats.png"
+            alt="stat"
+            class="emoji h-[25px] mr-[8px]"
+          />
+          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+            >Github- 143 Stars</span
+          >
+        </div>
+        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+          >last updated: July 9th, 2023</span
+        >
+      </div>
+      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+    </div>
+    <hr class="separator mt-[30px] mb-[30px]" />
+    <div class="flex justify-between items-center">
+      <div class="flex gap-[10px] items-end">
+        <div class="flex items-end">
+          <img
+            src="/static/emojis/stats.png"
+            alt="stat"
+            class="emoji h-[25px] mr-[8px]"
+          />
+          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+            >LeetCode- 197 Questions (47, 98, 33)</span
+          >
+        </div>
+        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+          >last updated: July 9th, 2023</span
+        >
+      </div>
+      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+    </div>
+    <hr class="separator mt-[30px] mb-[30px]" />
   </div>
 </div>
 
@@ -114,20 +188,5 @@
 
   .scrollable-section::-webkit-scrollbar {
     display: none; /* Hide scrollbar in WebKit browsers */
-  }
-
-  .image-placeholder {
-    background-color: #303030;
-    aspect-ratio: 3 / 2;
-    width: 325px;
-    margin-top: 25px;
-    border-radius: 10px;
-  }
-
-  .caption {
-    text-align: center;
-    color: #a0a0a0;
-    font-size: 9px;
-    margin-top: 12px;
   }
 </style>
