@@ -632,7 +632,7 @@
                 tabindex="0"
                 use:magneticHover={{ intensity: 50, scale: 0.95 }}
               >
-                <Stars starCount={65} backgroundColor="rgba(41,41,41,1)" />
+                <Stars starCount={100} backgroundColor="rgba(41,41,41,1)" />
               </div>
             </div>
             <!-- svelte-ignore a11y_click_events_have_key_events -->

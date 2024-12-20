@@ -13,13 +13,14 @@
   import type { SvelteComponent } from "svelte";
   import gsap from "gsap";
   import { on } from "svelte/events";
-  import {tooltip} from "./tooltip";
+  import { tooltip } from "./tooltip";
 
   interface Page {
     id: string;
     component: typeof SvelteComponent;
     zIndex: number;
     left?: number;
+    isOpaque?: boolean;
   }
 
   // Track open pages and their order
@@ -151,6 +152,15 @@
     }
   }
 
+  function toggleOpacity(pageId: string): void {
+    openPages = openPages.map((page) => {
+      if (page.id === pageId) {
+        return { ...page, isOpaque: !page.isOpaque };
+      }
+      return page;
+    });
+  }
+
   $: {
     console.log("Reactive openPages triggered:", openPages);
     calculatedPositions = calculatePositions();
@@ -160,7 +170,7 @@
 
 <!-- Rest of the component remains the same -->
 <div class="page-container">
-  {#each openPages as { id, component, left, zIndex } (id)}
+  {#each openPages as { id, component, left, zIndex, isOpaque } (id)}
     <div
       class="page"
       data-page-id={id}
@@ -170,6 +180,7 @@
           left: {left}px;
           top: {TOP_MARGIN}px;
           z-index: {zIndex};
+          background-color: rgba(28, 28, 28, {isOpaque ? '1' : '0.8'});
         "
       on:mouseenter={() => {
         handleMouseEnter(id);
@@ -194,6 +205,33 @@
             class="border-none h-[3.5px] bg-[rgba(255,255,255,0.2)] w-[16px] rounded-full"
           /></button
         >
+        <button
+          class="eye-btn absolute top-[30px] right-[80px] cursor-pointer flex justify-center items-center"
+          class:is-active={isOpaque}
+          class:active={isOpaque}
+          on:click={() => toggleOpacity(id)}
+          aria-label="Toggle opacity"
+          on:mouseenter={() => {
+            /* handle hover */
+          }}
+          on:mouseleave={() => {
+            /* handle hover end */
+          }}
+          use:tooltip={{ text: isOpaque ? "Enable Blur" : "Disable Blur", position: "top" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
         <svelte:component this={component} {openPage} {closePage} />
       </div>
     </div>
@@ -201,6 +239,21 @@
 </div>
 
 <style>
+  .eye-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  .eye-btn:hover {
+    background: rgba(41, 41, 41, 0.4);
+  }
+
+  .eye-btn.is-active {
+    background: rgba(41, 41, 41, 0.6);
+  }
   .page-container {
     position: fixed;
     top: 0;
