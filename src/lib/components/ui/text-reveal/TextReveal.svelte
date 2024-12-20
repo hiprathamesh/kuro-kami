@@ -9,7 +9,7 @@
     visible: (i: number) => ({
       opacity: 1,
       transition: {
-        delay: i * 0.08, // Adjusted delay for smooth animations
+        delay: i * 0.06, // Adjusted delay for smooth animations
         duration: 0.8, // Animation duration for each character
       },
     }),
