@@ -206,27 +206,21 @@
           /></button
         >
         <button
-          class="eye-btn absolute top-[30px] right-[80px] cursor-pointer flex justify-center items-center"
+          class="eye-btn absolute top-[30px] right-[85px] cursor-pointer flex justify-center items-center"
           class:is-active={isOpaque}
           class:active={isOpaque}
           on:click={() => toggleOpacity(id)}
           aria-label="Toggle opacity"
-          on:mouseenter={() => {
-            /* handle hover */
-          }}
-          on:mouseleave={() => {
-            /* handle hover end */
-          }}
           use:tooltip={{ text: isOpaque ? "Enable Blur" : "Disable Blur", position: "top" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="currentColor"
-            stroke-width="2"
+            stroke="rgba(255,255,255,0.2)"
+            stroke-width="2.5"
           >
             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
             <circle cx="12" cy="12" r="3" />
