@@ -70,6 +70,10 @@
 	let vector: Vector = { x: 0, y: 0 };
 	let mouseVector: Vector = { x: 0, y: 0 };
 	let resizeObserver: ResizeObserver;
+	let isMouseOver: boolean = false;
+	let lastInteractionTime: number = 0;
+	const DECELERATION_DELAY = 50; // Start decelerating after 1 second of no interaction
+	const DECELERATION_FACTOR = 0.98; // Reduce velocity by 5% each frame during deceleration
 
 	function initStars(width: number, height: number): void {
 		stars = Array.from({ length: starCount }, (_, i) => {
@@ -85,12 +89,24 @@
 		});
 	}
 
-	function animate(): void {
+	function animate(timestamp: number): void {
 		if (!ctx) return;
 
-		// Smooth vector interpolation
-		vector.x += (mouseVector.x - vector.x) / 30;
-		vector.y += (mouseVector.y - vector.y) / 30;
+		const timeSinceLastInteraction = timestamp - lastInteractionTime;
+		
+		if (isMouseOver || timeSinceLastInteraction < DECELERATION_DELAY) {
+			// Normal movement when mouse is over or recently left
+			vector.x += (mouseVector.x - vector.x) / 30;
+			vector.y += (mouseVector.y - vector.y) / 30;
+		} else {
+			// Apply deceleration
+			vector.x *= DECELERATION_FACTOR;
+			vector.y *= DECELERATION_FACTOR;
+
+			// Stop completely if movement is very small
+			if (Math.abs(vector.x) < 0.01) vector.x = 0;
+			if (Math.abs(vector.y) < 0.01) vector.y = 0;
+		}
 
 		// Clear canvas with background color
 		ctx.fillStyle = backgroundColor;
@@ -120,6 +136,17 @@
 			x: event.clientX - rect.left - rect.width / 2,
 			y: event.clientY - rect.top - rect.height / 2
 		};
+		lastInteractionTime = performance.now();
+	}
+
+	function handleMouseEnter(): void {
+		isMouseOver = true;
+		lastInteractionTime = performance.now();
+	}
+
+	function handleMouseLeave(): void {
+		isMouseOver = false;
+		lastInteractionTime = performance.now();
 	}
 
 	function resizeCanvas(): void {
@@ -141,7 +168,7 @@
 		resizeObserver.observe(canvasElement.parentElement as HTMLElement);
 
 		// Start animation
-		animate();
+		requestAnimationFrame(animate);
 
 		return () => {
 			resizeObserver.disconnect();
@@ -152,6 +179,8 @@
 <canvas
 	bind:this={canvasElement}
 	on:mousemove={handleMouseMove}
+	on:mouseenter={handleMouseEnter}
+	on:mouseleave={handleMouseLeave}
 	style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
 ></canvas>
 

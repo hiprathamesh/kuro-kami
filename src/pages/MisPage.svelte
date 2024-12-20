@@ -1,5 +1,7 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import {tooltip} from "../components/tooltip";
+
 </script>
 
 <div class="page-content" transition:fade>
@@ -26,7 +28,8 @@
       </div>
       <p class="jbm font-semibold text-[15px] text-[#D0D0D0] italic mt-[30px]">
         Designed & Developed by <regular
-          class="jbm font-semibold text-[15px] text-[#E8D284] not-italic"
+          class="jbm font-semibold text-[15px] text-[#E8D284] not-italic cursor-pointer"
+          use:tooltip={{ text: "that's me!", position: "top" }}
           >Royalp</regular
         >
       </p>
