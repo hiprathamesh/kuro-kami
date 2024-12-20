@@ -22,9 +22,14 @@
     "vite": "^6.0.1"
   },
   "dependencies": {
+    "body-parser": "^1.20.3",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "gsap": "^3.12.5",
     "lenis": "^1.1.18",
+    "nodemailer": "^6.9.16",
     "paper": "^0.12.18",
     "svelte-motion": "^0.12.2",
     "swapy": "^0.4.2",
