@@ -23,10 +23,12 @@
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px]">
     <p class="page-text">
-      I am a designer line here and more. Project boolean italic edit
-      strikethrough device component community fill. Italic selection project
-      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
-      italic stroke. Pixel font flows follower team fill.
+      I am Prathamesh Nikam, a front end developer (React, Svelte), a designer
+      with a passion for creating intuitive and dynamic user experiences. I have
+      a keen eye for detail and a strong understanding of modern web
+      technologies. My work involves transforming complex ideas into elegant and
+      functional designs, ensuring seamless interaction and engagement for
+      users.
     </p>
 
     <div class="justify-center flex w-fit flex-col">
@@ -36,20 +38,21 @@
 
     <div class="content mt-[40px]">
       <p class="page-text">
-        College and Village here maybe idk. Project boolean italic edit
-        strikethrough device component community fill. Italic selection project
-        reesizing flows. Thumbnail auto scale text boolean link strikethrough
-        link italic stroke. Pixel font flows follower team fill. College and
-        Village here maybe idk. Project boolean italic edit strikethrough device
-        component community fill. Italic selection project reesizing flows.
+        I am from Deola, Nashik. I am currently studying Computer Science and
+        Engineering at IIIT Bhopal. My journey in the tech world started at an
+        early age, and I have always been fascinated by the endless
+        possibilities that technology offers. At college, I am actively involved
+        in various tech communities and projects, constantly learning and
+        growing my skills. Currently, I am the design lead at the college's
+        coding club, Codame.
       </p>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <p class="page-text">
-      I am a designer line here and more. Project boolean italic edit
-      strikethrough device component community fill. Italic selection project
-      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
-      italic stroke. Pixel font flows follower team fill.
+      In my free time, I enjoy playing table tennis, which helps me stay active.
+      I also love cooking, trying new recipes and flavors. Coding
+      new application ideas is another passion of mine, allowing me to bring creative
+      solutions to life. Additionally, I unwind by playing games on PC.
     </p>
 
     <div class="flex gap-[20px]">
@@ -64,21 +67,78 @@
     </div>
 
     <div class="flex gap-[15px] items-baseline mt-[40px]">
-      <p class="page-text">Interest in Programming and Technology at</p>
+      <p class="page-text">You can check what game I am currently playing at</p>
       <div
         class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        role="button"
+        tabindex="0"
+        onclick={() => openPage("spot4", OthersPage)}
+        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot4", OthersPage); }}
       >
-        <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <span class="font-normal text-[14px] text-[#4C86FF]" onclick={() => openPage("spot4", OthersPage)}>Other Than Work</span>
+        <span
+          class="font-normal text-[14px] text-[#4C86FF]"
+          >Other Than Work</span
+        >
       </div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
-    <p class="page-text">College and Village here maybe idk. Project boolean</p>
+    <p class="page-text">I am proficient in several languages, including: </p>
     <div class="mt-[30px] flex justify-center gap-[40px]">
       <div>
         <div
-        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+          class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">Marathi</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">English</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">Hindi</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
+        ></div>
+        <span class="font-normal text-[14px] text-[#D0D0D0]">Japanese</span>
+        <div class="flex justify-between mt-[10px] items-center">
+          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
         ></div>
         <span class="font-normal text-[14px] text-[#D0D0D0]">C++</span>
         <div class="flex justify-between mt-[10px] items-center">
@@ -89,67 +149,20 @@
           <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
         </div>
       </div>
-      <div>
-        <div
-        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
-        ></div>
-        <span class="font-normal text-[14px] text-[#D0D0D0]">Java</span>
-        <div class="flex justify-between mt-[10px] items-center">
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
-        </div>
-      </div>
-      <div>
-        <div
-        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
-        ></div>
-        <span class="font-normal text-[14px] text-[#D0D0D0]">Python</span>
-        <div class="flex justify-between mt-[10px] items-center">
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
-        </div>
-      </div>
-      <div>
-        <div
-        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
-        ></div>
-        <span class="font-normal text-[14px] text-[#D0D0D0]">Kotlin</span>
-        <div class="flex justify-between mt-[10px] items-center">
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
-        </div>
-      </div>
-      <div>
-        <div
-        class="h-[65px] w-[65px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
-        ></div>
-        <span class="font-normal text-[14px] text-[#D0D0D0]">C</span>
-        <div class="flex justify-between mt-[10px] items-center">
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot w-[8px] h-[8px] rounded-full bg-[#4C86FF]"></div>
-          <div class="dot-not w-[6px] h-[6px] rounded-full"></div>
-        </div>
-      </div>
     </div>
     <div class="flex gap-[15px] items-baseline mt-[40px] mb-[80px]">
-      <p class="page-text">Interest in Programming and Technology at</p>
+      <p class="page-text">See what programming languages I know other than C++ at</p>
       <div
         class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        role="button"
+        tabindex="0"
+        onclick={() => openPage("spot2", SkillsPage)}
+        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot2", SkillsPage); }}
       >
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <span class="font-normal text-[14px] text-[#4C86FF]" onclick={() => openPage("spot2", SkillsPage)}>Skills I Can</span>
+        <span
+          class="font-normal text-[14px] text-[#4C86FF]"
+          >Skills I Can</span
+        >
       </div>
     </div>
   </div>
