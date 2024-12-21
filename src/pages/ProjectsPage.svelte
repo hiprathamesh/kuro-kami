@@ -16,7 +16,7 @@
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px]">
+  <div class="content scrollable-section pt-[30px] pb-[90px]">
     <p class="jbm font-bold text-[20px] text-[#D0D0D0]">
       AttendIt - Making Indian Attendance Systems Sensible
     </p>
@@ -215,7 +215,7 @@
   }
 
   .scrollable-section {
-    max-height: calc(100% - 200px); /* Subtract the height of the pagination */
+    max-height: calc(100% ); /* Subtract the height of the pagination */
     overflow: auto; /* Enable scrolling */
   }
 

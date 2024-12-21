@@ -76,7 +76,7 @@
     <div class="success-message jbm font-medium">Message sent successfully! Thanks, I'll reply soon.</div>
   {/if}
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px]">
+  <div class="content scrollable-section pt-[30px] pb-[90px]">
     <p class="page-text">
       I am a designer line here and more. Project boolean italic edit.
     </p>
@@ -199,7 +199,7 @@
   }
 
   .scrollable-section {
-    max-height: calc(100% - 200px); /* Subtract the height of the pagination */
+    max-height: calc(100%); /* Subtract the height of the pagination */
     overflow: auto; /* Enable scrolling */
   }
 

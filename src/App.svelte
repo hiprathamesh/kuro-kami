@@ -875,4 +875,70 @@
     display: flex;
     grid-area: 2/5/3/6;
   }
+
+  /* Tablet layout (768px to 1024px) */
+  @media screen and (max-width: 1024px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .item1 { grid-area: 1/1/2/3; }
+    .item2 { grid-area: 1/3/2/5; }
+    .item3 { grid-area: 2/1/3/3; }
+    .item4 { grid-area: 2/3/3/5; }
+    .item5 { grid-area: 3/1/4/2; }
+    .item6 { grid-area: 3/2/4/3; }
+    .item7 { grid-area: 3/3/4/5; }
+  }
+
+  /* Mobile layout (320px to 767px) */
+  @media screen and (max-width: 767px) {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .item1,
+    .item2,
+    .item3,
+    .item4,
+    .item5,
+    .item6,
+    .item7 {
+      grid-area: auto;
+    }
+
+    .item {
+      height: 180px;  /* Shorter height for mobile */
+    }
+
+    .emoji {
+      width: 24px;  /* Smaller emoji for mobile */
+      height: 24px;
+    }
+
+    span {
+      font-size: 14px;  /* Smaller text for mobile */
+    }
+
+    picture img {
+      max-height: 80%;  /* Slightly smaller images */
+    }
+  }
+
+  /* Adjustments for smaller tablets */
+  @media screen and (max-width: 900px) {
+    .container {
+      padding: 15px;
+    }
+  }
+
+  /* Handle landscape mode on mobile */
+  @media screen and (max-width: 767px) and (orientation: landscape) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 </style>

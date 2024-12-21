@@ -14,6 +14,24 @@
   import gsap from "gsap";
   import { on } from "svelte/events";
   import { tooltip } from "./tooltip";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    function handleMouseMove(event: MouseEvent) {
+      const { clientX, clientY } = event;
+      const { innerWidth, innerHeight } = window;
+
+      if (clientX < 50 && clientY > innerHeight - 50) {
+        openPages = [];
+      }
+    }
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  });
 
   interface Page {
     id: string;
@@ -182,7 +200,7 @@
           z-index: {zIndex};
           background-color: rgba(28, 28, 28, {isOpaque ? '1' : '0.8'});
         "
-      on:mouseenter={() => {
+      onmouseenter={() => {
         handleMouseEnter(id);
         animatePage(id);
       }}
@@ -191,14 +209,8 @@
     >
       <div class="page-content px-[40px] pt-[30px]" id="page-content">
         <button
-          class="close-btn"
-          on:click={() => closePage(id)}
-          aria-label="Close page"
-          ><hr class="" />
-        </button>
-        <button
           class="h-[45px] w-[45px] bg-[rgba(41,41,41,0.60)] rounded-[8px] absolute top-[30px] right-[30px] cursor-pointer flex justify-center items-center"
-          on:click={() => closePage(id)}
+          onclick={() => closePage(id)}
           aria-label="Close page"
           use:tooltip={{ text: "Minimize", position: "top" }}
           ><hr
@@ -209,9 +221,12 @@
           class="eye-btn absolute top-[30px] right-[85px] cursor-pointer flex justify-center items-center"
           class:is-active={isOpaque}
           class:active={isOpaque}
-          on:click={() => toggleOpacity(id)}
+          onclick={() => toggleOpacity(id)}
           aria-label="Toggle opacity"
-          use:tooltip={{ text: isOpaque ? "Enable Blur" : "Disable Blur", position: "top" }}
+          use:tooltip={{
+            text: isOpaque ? "Enable Blur" : "Disable Blur",
+            position: "top",
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -230,6 +245,32 @@
       </div>
     </div>
   {/each}
+  {#if openPages.length > 1}
+    <button
+      class="h-[45px] w-[45px] bg-[rgba(41,41,41,0.60)] rounded-[8px] absolute top-[25px] left-[50%] transform -translate-x-1/2 cursor-pointer flex justify-center items-center pointer-events-auto"
+      onclick={() => (openPages = [])}
+      aria-label="Close all pages"
+      in:fly={{ y: -50, duration: 600, easing: quintOut }}
+      out:fly={{ y: -50, duration: 600, easing: quintOut }}
+      use:tooltip={{ text: "Close All", position: "bottom" }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="rgba(255,255,255,0.2)"
+        stroke-width="2.5"
+      >
+        <path
+          d="M18 6L6 18M6 6l12 12"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  {/if}
 </div>
 
 <style>
@@ -261,7 +302,8 @@
   .page {
     position: absolute;
     width: 918px;
-    height: 960px;
+    top: 120px;
+    height: calc(100% - 100px);
     background: rgba(28, 28, 28, 0.8);
     border-radius: 15px 15px 0px 0px;
     border: 1px dashed rgba(255, 255, 255, 0.15);
@@ -279,21 +321,4 @@
     position: relative;
     overflow: hidden;
   }
-
-  /* .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    z-index: 10;
-  } */
 </style>

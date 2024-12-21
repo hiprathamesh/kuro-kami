@@ -56,7 +56,11 @@ type TooltipParams = {
         const tooltipRect = tooltip.getBoundingClientRect();
         
         // Now position it correctly
-        tooltip.style.top = `${rect.top - 40}px`;
+        if (params.position === 'bottom') {
+          tooltip.style.top = `${rect.bottom + 10}px`;
+        } else {
+          tooltip.style.top = `${rect.top - 40}px`;
+        }
         tooltip.style.left = `${rect.left + scrollX + (rect.width / 2) - (tooltipRect.width / 2)}px`;
         
         // Make it visible again

@@ -16,7 +16,7 @@
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px]">
+  <div class="content scrollable-section pt-[30px] pb-[90px]">
     <div class="justify-center flex w-full h-fit">
       <div class="image-placeholder h-[200px]"></div>
     </div>
@@ -119,7 +119,7 @@
   }
 
   .scrollable-section {
-    max-height: calc(100% - 200px); /* Subtract the height of the pagination */
+    max-height: calc(100%); /* Subtract the height of the pagination */
     overflow: auto; /* Enable scrolling */
   }
 
