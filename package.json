@@ -22,7 +22,6 @@
     "vite": "^6.0.1"
   },
   "dependencies": {
-    "@vercel/node": "^4.0.0",
     "body-parser": "^1.20.3",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
