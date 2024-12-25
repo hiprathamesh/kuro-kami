@@ -1,5 +1,7 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import emailjs from "@emailjs/browser";
+
   let name = "";
   let email = "";
   let message = "";
@@ -7,7 +9,7 @@
   let error = "";
   let success = false;
 
-  async function handleSubmit() {
+  const sendEmail = (e: SubmitEvent) => {
     if (!name || !email || !message) {
       error = "All fields are required";
       return;
@@ -21,42 +23,42 @@
     sending = true;
     error = "";
 
-    try {
-      const apiBase =
-        process.env.NODE_ENV === "production"
-          ? "" // Leave empty for Vercel since the serverless function is in the same domain
-          : "http://localhost:5000";
-
-      const response = await fetch("/api/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    emailjs
+      .sendForm(
+        "service_qf3iwrl",
+        "template_wui7cz9",
+        e.target as HTMLFormElement,
+        {
+          publicKey: "1f1Zjvs0DgVovYnLZ",
+        }
+      )
+      .then(
+        () => {
+          success = true;
+          setTimeout(() => {
+            success = false;
+          }, 3000);
+          name = "";
+          email = "";
+          message = "";
         },
-        body: JSON.stringify({ name, email, message }),
+        (error) => {
+          error = error.text || "Failed to send message";
+        }
+      )
+      .finally(() => {
+        sending = false;
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
-
-      if (data.success) {
-        success = true;
-        name = "";
-        email = "";
-        message = "";
-      }
-    } catch (err: unknown) {
-      console.error("Client error:", err);
-      error = err instanceof Error ? err.message : "Failed to send message";
-    } finally {
-      sending = false;
-    }
-  }
+  };
 
   function isValidEmail(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  $: if (error) {
+    setTimeout(() => {
+      error = "";
+    }, 3000);
   }
 </script>
 
@@ -87,38 +89,42 @@
     <p class="page-text">
       I am a designer line here and more. Project boolean italic edit.
     </p>
-    <textarea
-      id="message"
-      bind:value={message}
-      class="txt-area w-full h-[250px] mt-[30px] pt-[15px] pl-[20px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[10px] placeholder-[#808080] placeholder-opacity-50 italic"
-      placeholder="let me know what you think..."
-    ></textarea>
+    <form on:submit|preventDefault={sendEmail}>
+      <textarea
+        id="message"
+        name="message"
+        bind:value={message}
+        class="txt-area w-full h-[250px] mt-[30px] pt-[15px] pl-[20px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[10px] placeholder-[#808080] placeholder-opacity-50 italic"
+        placeholder="let me know what you think..."
+      ></textarea>
 
-    <div class="flex justify-between mt-[40px] items-center">
-      <span class="page-text">by</span>
-      <input
-        bind:value={name}
-        id="name"
-        type="text"
-        class="txt-area w-[200px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
-        placeholder="Yagami Raito..."
-      />
-      <span class="page-text">, get back to me at</span>
-      <input
-        bind:value={email}
-        id="email"
-        type="email"
-        class="txt-area w-[300px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
-        placeholder="yagami-raito @ death-note.com..."
-      />
-      <button
-        on:click={handleSubmit}
-        disabled={sending}
-        class="butt bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] text-[#4C86FF] py-[10px] px-[20px] rounded-[5px] cursor-pointer w-[100px] h-[40px] flex justify-center items-center"
-      >
-        {sending ? "Sending..." : "Send"}
-      </button>
-    </div>
+      <div class="flex justify-between mt-[40px] items-center">
+        <span class="page-text">by</span>
+        <input
+          bind:value={name}
+          id="name"
+          name="from_name"
+          type="text"
+          class="txt-area w-[200px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
+          placeholder="Yagami Raito..."
+        />
+        <span class="page-text">, get back to me at</span>
+        <input
+          bind:value={email}
+          id="email"
+          name="from_email"
+          class="txt-area w-[300px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
+          placeholder="yagami-raito @ death-note.com..."
+        />
+        <button
+          type="submit"
+          value="Send"
+          class="butt bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] text-[#4C86FF] py-[10px] px-[20px] rounded-[5px] cursor-pointer w-[100px] h-[40px] flex justify-center items-center"
+        >
+          {sending ? "Sending..." : "Send"}
+        </button>
+      </div>
+    </form>
     <p class="page-text mt-[60px]">
       I am a designer line here and more. Project boolean italic edit.
     </p>

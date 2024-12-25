@@ -28,6 +28,7 @@
     "vite": "^6.0.1"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@sveltejs/kit": "^2.15.0",
     "@vercel/node": "^5.0.0",
     "body-parser": "^1.20.3",
