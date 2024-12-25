@@ -22,7 +22,12 @@
     error = "";
 
     try {
-      const response = await fetch("http://localhost:3000/api/send-email", {
+      const apiBase =
+        process.env.NODE_ENV === "production"
+          ? "" // Leave empty for Vercel since the serverless function is in the same domain
+          : "http://localhost:5000";
+
+      const response = await fetch("/api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +78,9 @@
   {/if}
 
   {#if success}
-    <div class="success-message jbm font-medium">Message sent successfully! Thanks, I'll reply soon.</div>
+    <div class="success-message jbm font-medium">
+      Message sent successfully! Thanks, I'll reply soon.
+    </div>
   {/if}
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[90px]">
@@ -81,6 +88,7 @@
       I am a designer line here and more. Project boolean italic edit.
     </p>
     <textarea
+      id="message"
       bind:value={message}
       class="txt-area w-full h-[250px] mt-[30px] pt-[15px] pl-[20px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[10px] placeholder-[#808080] placeholder-opacity-50 italic"
       placeholder="let me know what you think..."
@@ -90,12 +98,16 @@
       <span class="page-text">by</span>
       <input
         bind:value={name}
+        id="name"
+        type="text"
         class="txt-area w-[200px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
         placeholder="Yagami Raito..."
       />
       <span class="page-text">, get back to me at</span>
       <input
         bind:value={email}
+        id="email"
+        type="email"
         class="txt-area w-[300px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
         placeholder="yagami-raito @ death-note.com..."
       />
