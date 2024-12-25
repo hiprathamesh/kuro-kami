@@ -16,6 +16,9 @@
   import Stars from "./components/Stars.svelte";
   import { magneticHover } from './components/magneticHover';
   import {tooltip} from "./components/tooltip";
+  import PlayingPage from "./pages/PlayingPage.svelte";
+  import WatchingPage from "./pages/WatchingPage.svelte";
+  import ListeningPage from "./pages/ListeningPage.svelte";
 
 
 
@@ -29,6 +32,9 @@
     spot5: ContactPage,
     spot6: MisPage,
     spot7: CurrentlyPage,
+    spot8: PlayingPage,
+    spot9: ListeningPage,
+    spot10: WatchingPage,
   };
 
   function handleGridClick(id: string) {

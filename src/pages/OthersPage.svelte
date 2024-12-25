@@ -1,5 +1,11 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import type { SvelteComponent } from "svelte";
+  import PlayingPage from "./PlayingPage.svelte";
+  import ListeningPage from "./ListeningPage.svelte";
+  import WatchingPage from "./WatchingPage.svelte";
+  let { openPage = (id: string, component: typeof SvelteComponent) => {} } =
+    $props();
 </script>
 
 <div class="page-content" id="pagee" transition:fade>
@@ -39,6 +45,10 @@
     </div>
     <div
         class="max-w-[200px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        role="button"
+        tabindex="0"
+        onclick={() => openPage("spot8", PlayingPage)}
+        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot8", PlayingPage); }}
       >
         <span class="font-normal text-[14px] text-[#4C86FF]">See Archived List</span>
       </div>
@@ -55,6 +65,10 @@
     </div>
     <div
         class="max-w-[200px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        role="button"
+        tabindex="0"
+        onclick={() => openPage("spot9", ListeningPage)}
+        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot9", ListeningPage); }}
       >
         <span class="font-normal text-[14px] text-[#4C86FF]">See Archived List</span>
       </div>
@@ -71,6 +85,10 @@
     </div>
     <div
         class="max-w-[200px] mb-[80px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        role="button"
+        tabindex="0"
+        onclick={() => openPage("spot10", WatchingPage)}
+        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot10", WatchingPage); }}
       >
         <span class="font-normal text-[14px] text-[#4C86FF]">See Archived List</span>
       </div>
