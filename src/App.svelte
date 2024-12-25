@@ -116,7 +116,7 @@
 
     if (container) {
       swapy = createSwapy(container, {
-        animation: "spring", // Options: dynamic, spring, or none
+        animation: "dynamic", // Options: dynamic, spring, or none
       });
 
       // Enable Swapy
