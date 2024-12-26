@@ -30,6 +30,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@sveltejs/kit": "^2.15.0",
+    "@vercel/analytics": "^1.4.1",
     "@vercel/node": "^5.0.0",
     "body-parser": "^1.20.3",
     "clsx": "^2.1.1",
