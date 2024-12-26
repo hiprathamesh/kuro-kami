@@ -12,7 +12,7 @@
     <span class="heading">My Projects</span>
   </div>
   <span class="quote">
-    "Be yourself; everyone else is already taken." ~ Oscar Wilde
+    "The best way to predict the future is to invent it." ~ Alan Kay
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->

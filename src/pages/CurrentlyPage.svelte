@@ -12,7 +12,7 @@
     <span class="heading">Currently</span>
   </div>
   <span class="quote">
-    "Be yourself; everyone else is already taken." ~ Oscar Wilde
+    "Don’t watch the clock; do what it does. Keep going." ~ Sam Levenson
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->

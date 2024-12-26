@@ -16,7 +16,7 @@
     <span class="heading">Skills I Can</span>
   </div>
   <span class="quote">
-    "Be yourself; everyone else is already taken." ~ Oscar Wilde
+    "Creativity is intelligence having fun." ~ Albert Einstein
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->

@@ -94,7 +94,7 @@
     <span class="heading">Contact Here</span>
   </div>
   <span class="quote">
-    "Be yourself; everyone else is already taken." ~ Oscar Wilde
+    "The most important thing in communication is hearing what isn’t said." ~ Peter Drucker
   </span>
   <hr class="separator mt-[10px]" />
   {#if error}

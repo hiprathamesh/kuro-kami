@@ -18,7 +18,7 @@
     <span class="heading">Other Than Work</span>
   </div>
   <span class="quote">
-    "Be yourself; everyone else is already taken." ~ Oscar Wilde
+    "Life is what happens when you’re busy making other plans." ~ John Lennon
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->

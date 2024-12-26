@@ -14,7 +14,7 @@
     <span class="heading">Roots</span>
   </div>
   <span class="quote">
-    "Be yourself; everyone else is already taken." ~ Oscar Wilde
+    "If I have seen further, it is by standing on the shoulders of giants." ~ Isaac Newton
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->

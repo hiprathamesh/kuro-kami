@@ -11,7 +11,7 @@
         alt="game"
         class="emoji h-[100px]"
       />
-      <span class="quote mt-[20px]">Nothing as of now!</span>
+      <span class="quote mt-[20px]">Nothing here yet!</span>
     </div>
     <div class="flex items-end mb-[30px]">
       <img
@@ -22,7 +22,7 @@
       <span class="heading">Currently Playing (Archive)</span>
     </div>
     <span class="quote">
-      "Be yourself; everyone else is already taken." ~ Oscar Wilde
+      "Play is the highest form of research." ~ Albert Einstein
     </span>
     <hr class="separator mt-[10px]" />
     <!-- Scrollable content -->
