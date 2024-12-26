@@ -14,13 +14,10 @@
   import MisPage from "./pages/MisPage.svelte";
   import CurrentlyPage from "./pages/CurrentlyPage.svelte";
   import Stars from "./components/Stars.svelte";
-  import { magneticHover } from './components/magneticHover';
-  import {tooltip} from "./components/tooltip";
+  import { magneticHover } from "./components/magneticHover";
   import PlayingPage from "./pages/PlayingPage.svelte";
   import WatchingPage from "./pages/WatchingPage.svelte";
   import ListeningPage from "./pages/ListeningPage.svelte";
-
-
 
   let pageManager: PageManager;
 
@@ -491,8 +488,18 @@
                     class="absolute bottom-0 right-0 max-h-[85%]"
                     draggable="false"
                   />
-                  <source type="image/webp" srcset="/static/tilePhotos/webp/about-me.webp" class="absolute bottom-0 right-0 max-h-[85%]" draggable="false"/>
-                  <img src="/static/tilePhotos/jpg/about-me.png" alt="about me" class="absolute bottom-0 right-0 max-h-[85%]" draggable="false"/>
+                  <source
+                    type="image/webp"
+                    srcset="/static/tilePhotos/webp/about-me.webp"
+                    class="absolute bottom-0 right-0 max-h-[85%]"
+                    draggable="false"
+                  />
+                  <img
+                    src="/static/tilePhotos/jpg/about-me.png"
+                    alt="about me"
+                    class="absolute bottom-0 right-0 max-h-[85%]"
+                    draggable="false"
+                  />
                 </picture>
               </div>
             </div>
@@ -522,8 +529,18 @@
                     class="absolute bottom-0 right-0 max-h-[90%]"
                     draggable="false"
                   />
-                  <source type="image/webp" srcset="/static/tilePhotos/webp/skills.webp" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
-                  <img src="/static/tilePhotos/jpg/skills.png" alt="about me" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                  <source
+                    type="image/webp"
+                    srcset="/static/tilePhotos/webp/skills.webp"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <img
+                    src="/static/tilePhotos/jpg/skills.png"
+                    alt="about me"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
                 </picture>
               </div>
             </div>
@@ -553,8 +570,18 @@
                     class="absolute bottom-0 right-0 max-h-[100%]"
                     draggable="false"
                   />
-                  <source type="image/webp" srcset="/static/tilePhotos/webp/projects.webp" class="absolute bottom-0 right-0 max-h-[100%]" draggable="false"/>
-                  <img src="/static/tilePhotos/jpg/projects.png" alt="about me" class="absolute bottom-0 right-0 max-h-[100%]" draggable="false"/>
+                  <source
+                    type="image/webp"
+                    srcset="/static/tilePhotos/webp/projects.webp"
+                    class="absolute bottom-0 right-0 max-h-[100%]"
+                    draggable="false"
+                  />
+                  <img
+                    src="/static/tilePhotos/jpg/projects.png"
+                    alt="about me"
+                    class="absolute bottom-0 right-0 max-h-[100%]"
+                    draggable="false"
+                  />
                 </picture>
               </div>
             </div>
@@ -588,8 +615,18 @@
                     class="absolute bottom-0 right-0 max-h-[90%]"
                     draggable="false"
                   />
-                  <source type="image/webp" srcset="/static/tilePhotos/webp/others.webp" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
-                  <img src="/static/tilePhotos/jpg/others.png" alt="about me" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                  <source
+                    type="image/webp"
+                    srcset="/static/tilePhotos/webp/others.webp"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <img
+                    src="/static/tilePhotos/jpg/others.png"
+                    alt="about me"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
                 </picture>
               </div>
             </div>
@@ -623,8 +660,18 @@
                     class="absolute bottom-0 right-0 max-h-[95%]"
                     draggable="false"
                   />
-                  <source type="image/webp" srcset="/static/tilePhotos/webp/contact.webp" class="absolute bottom-0 right-0 max-h-[95%]" draggable="false"/>
-                  <img src="/static/tilePhotos/jpg/contact.png" alt="about me" class="absolute bottom-0 right-0 max-h-[95%]" draggable="false"/>
+                  <source
+                    type="image/webp"
+                    srcset="/static/tilePhotos/webp/contact.webp"
+                    class="absolute bottom-0 right-0 max-h-[95%]"
+                    draggable="false"
+                  />
+                  <img
+                    src="/static/tilePhotos/jpg/contact.png"
+                    alt="about me"
+                    class="absolute bottom-0 right-0 max-h-[95%]"
+                    draggable="false"
+                  />
                 </picture>
               </div>
             </div>
@@ -667,8 +714,18 @@
                     class="absolute bottom-0 right-0 max-h-[90%]"
                     draggable="false"
                   />
-                  <source type="image/webp" srcset="/static/tilePhotos/webp/currently.webp" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
-                  <img src="/static/tilePhotos/jpg/currently.png" alt="about me" class="absolute bottom-0 right-0 max-h-[90%]" draggable="false"/>
+                  <source
+                    type="image/webp"
+                    srcset="/static/tilePhotos/webp/currently.webp"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
+                  <img
+                    src="/static/tilePhotos/jpg/currently.png"
+                    alt="about me"
+                    class="absolute bottom-0 right-0 max-h-[90%]"
+                    draggable="false"
+                  />
                 </picture>
               </div>
             </div>
@@ -711,6 +768,13 @@
     bottom: 10px;
     width: 100%;
     overflow: visible;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      );
   }
 
   .marquee-track {
@@ -889,13 +953,27 @@
       gap: 15px;
     }
 
-    .item1 { grid-area: 1/1/2/3; }
-    .item2 { grid-area: 1/3/2/5; }
-    .item3 { grid-area: 2/1/3/3; }
-    .item4 { grid-area: 2/3/3/5; }
-    .item5 { grid-area: 3/1/4/2; }
-    .item6 { grid-area: 3/2/4/3; }
-    .item7 { grid-area: 3/3/4/5; }
+    .item1 {
+      grid-area: 1/1/2/3;
+    }
+    .item2 {
+      grid-area: 1/3/2/5;
+    }
+    .item3 {
+      grid-area: 2/1/3/3;
+    }
+    .item4 {
+      grid-area: 2/3/3/5;
+    }
+    .item5 {
+      grid-area: 3/1/4/2;
+    }
+    .item6 {
+      grid-area: 3/2/4/3;
+    }
+    .item7 {
+      grid-area: 3/3/4/5;
+    }
   }
 
   /* Mobile layout (320px to 767px) */
@@ -917,20 +995,20 @@
     }
 
     .item {
-      height: 180px;  /* Shorter height for mobile */
+      height: 180px; /* Shorter height for mobile */
     }
 
     .emoji {
-      width: 24px;  /* Smaller emoji for mobile */
+      width: 24px; /* Smaller emoji for mobile */
       height: 24px;
     }
 
     span {
-      font-size: 14px;  /* Smaller text for mobile */
+      font-size: 14px; /* Smaller text for mobile */
     }
 
     picture img {
-      max-height: 80%;  /* Slightly smaller images */
+      max-height: 80%; /* Slightly smaller images */
     }
   }
 

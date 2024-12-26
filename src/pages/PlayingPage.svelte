@@ -5,13 +5,21 @@
   </script>
   
   <div class="page-content" transition:fade>
+    <div class="flex flex-col items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+      <img
+        src="/static/emojis/game.png"
+        alt="game"
+        class="emoji h-[100px]"
+      />
+      <span class="quote mt-[20px]">Nothing as of now!</span>
+    </div>
     <div class="flex items-end mb-[30px]">
       <img
         src="/static/emojis/game.png"
         alt="game"
         class="emoji h-[40px] mr-[10px]"
       />
-      <span class="heading">Currently Watching (Archive)</span>
+      <span class="heading">Currently Playing (Archive)</span>
     </div>
     <span class="quote">
       "Be yourself; everyone else is already taken." ~ Oscar Wilde
@@ -19,34 +27,6 @@
     <hr class="separator mt-[10px]" />
     <!-- Scrollable content -->
     <div class="content scrollable-section pt-[30px] pb-[90px]">
-      <div class="flex items-center justify-center flex-col">
-        <p class="naga text-[150px] text-[#D0D0D0]">黒紙</p>
-        <div class="flex items-center justify-center gap-[10px] mt-[5px]">
-          <div class=" w-[6px] h-[6px] rounded-full bg-[#292929]"></div>
-          <div class=" w-[6px] h-[6px] rounded-full bg-[#292929]"></div>
-          <div class=" w-[6px] h-[6px] rounded-full bg-[#292929]"></div>
-        </div>
-        <p class="jbm font-semibold text-[15px] text-[#D0D0D0] italic mt-[30px]">
-          Designed & Developed by <regular
-            class="jbm font-semibold text-[15px] text-[#E8D284] not-italic cursor-pointer"
-            use:tooltip={{ text: "that's me!", position: "top" }}
-            >Royalp</regular
-          >
-        </p>
-      </div>
-      <p class="jbm font-bold text-[18px] text-[#D0D0D0] mt-[40px]">KuroKami</p>
-      <p class="jbm font-light text-[11px] text-[#808080] mt-[5px]">/ˈkuː.roʊ ˈka.mi/</p>
-      <p class="jbm font-medium text-[11.5px] text-[#808080] mt-[20px]">NOUN</p>
-      <p class="jbm font-light text-[11.5px] text-[#D0D0D0] mt-[10px]">
-        The term can be interpreted literally as "black paper", but it may also
-        have symbolic or metaphorical meanings, depending on context.
-      </p>
-      <p class="jbm font-light text-[11.5px] text-[#D0D0D0] mt-[20px]">
-        The color black (黒) often symbolizes death, mystery, or the unknown in
-        Japanese culture. <br>"Paper" (紙) can signify writing, stories, or fate.
-        Together, 黒紙 could evoke the imagery of writing something dark,
-        mysterious, or fateful.
-      </p>
     </div>
   </div>
   
