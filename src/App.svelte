@@ -768,13 +768,13 @@
     bottom: 10px;
     width: 100%;
     overflow: visible;
-    mask-image: linear-gradient(
+    /* mask-image: linear-gradient(
         to right,
         transparent 0%,
         black 10%,
         black 90%,
         transparent 100%
-      );
+      ); */
   }
 
   .marquee-track {

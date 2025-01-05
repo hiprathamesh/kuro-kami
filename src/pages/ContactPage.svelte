@@ -182,11 +182,15 @@
           />
         </svg>
       </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         use:tooltip={{
           text: "Discord",
           position: "bottom",
         }}
+        role="button"
+        tabindex="0"
+        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -203,11 +207,15 @@
           />
         </svg>
       </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         use:tooltip={{
           text: "Github",
           position: "bottom",
         }}
+        role="button"
+        tabindex="0"
+        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -231,11 +239,15 @@
           />
         </svg>
       </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         use:tooltip={{
           text: "Instagram",
           position: "bottom",
         }}
+        role="button"
+        tabindex="0"
+        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -257,12 +269,16 @@
           />
         </svg>
       </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         use:tooltip={{
           text: "LinkedIn",
           position: "bottom",
         }}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        role="button"
+        tabindex="0"
+        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
       >
         <svg
           width="25"
@@ -288,11 +304,15 @@
           />
         </svg>
       </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         use:tooltip={{
           text: "Telegram",
           position: "bottom",
         }}
+        role="button"
+        tabindex="0"
+        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -309,11 +329,15 @@
           />
         </svg>
       </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         use:tooltip={{
           text: "Twitter",
           position: "bottom",
         }}
+        role="button"
+        tabindex="0"
+        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg

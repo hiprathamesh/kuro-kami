@@ -184,6 +184,8 @@
   .scrollable-section {
     max-height: calc(100%); /* Subtract the height of the pagination */
     overflow: auto; /* Enable scrolling */
+    scrollbar-width: none;
+    -moz-scrollbar-width: none;
   }
 
   .scrollable-section::-webkit-scrollbar {
