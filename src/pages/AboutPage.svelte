@@ -21,7 +21,7 @@
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px] pb-[90px]">
+  <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
       I am Prathamesh Nikam, a front end developer (React, Svelte), a designer
       with a passion for creating intuitive and dynamic user experiences. I have

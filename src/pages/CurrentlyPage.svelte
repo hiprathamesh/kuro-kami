@@ -16,7 +16,7 @@
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px] pb-[90px]">
+  <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
       I am a designer line here and more. Project boolean italic edit
       strikethrough device component community fill. Italic selection project

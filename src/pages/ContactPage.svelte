@@ -112,7 +112,7 @@
     </div>
   {/if}
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px] pb-[90px]">
+  <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
       You can reach out to me by filling out the form below. I'll get back to you as soon as possible.
     </p>
@@ -423,6 +423,8 @@
   .scrollable-section {
     max-height: calc(100%); /* Subtract the height of the pagination */
     overflow: auto; /* Enable scrolling */
+    scrollbar-width: none;
+    -moz-scrollbar-width: none;
   }
 
   .scrollable-section::-webkit-scrollbar {

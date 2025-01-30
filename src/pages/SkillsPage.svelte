@@ -20,7 +20,7 @@
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px] pb-[90px]">
+  <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
       I am passionate about technology and have a strong proficiency in various
       programming languages. My journey in tech has been driven by curiosity and

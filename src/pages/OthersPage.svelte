@@ -22,7 +22,7 @@
   </span>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
-  <div class="content scrollable-section pt-[30px] pb-[90px]">
+  <div class="content scrollable-section pt-[30px] pb-[200px]">
     <div class="justify-center flex w-full h-fit">
       <div class="image-placeholder h-[200px]"></div>
     </div>
@@ -40,18 +40,26 @@
       <div class="image-placeholder h-[175px]"></div>
     </div>
     <div class="mt-[20px] flex justify-start gap-[20px]">
-      <div class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
-      <div class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
     </div>
     <div
-        class="max-w-[200px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
-        role="button"
-        tabindex="0"
-        onclick={() => openPage("spot8", PlayingPage)}
-        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot8", PlayingPage); }}
+      class="max-w-[200px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      role="button"
+      tabindex="0"
+      onclick={() => openPage("spot8", PlayingPage)}
+      onkeydown={(e) => {
+        if (e.key === "Enter" || e.key === " ") openPage("spot8", PlayingPage);
+      }}
+    >
+      <span class="font-normal text-[14px] text-[#4C86FF]"
+        >See Archived List</span
       >
-        <span class="font-normal text-[14px] text-[#4C86FF]">See Archived List</span>
-      </div>
+    </div>
     <hr class="separator mt-[40px] mb-[40px]" />
     <p class="jbm font-bold text-[20px] text-[#d0d0d0]">
       Currently Listening: Lemonade (Beyoncé)
@@ -60,18 +68,27 @@
       <div class="image-placeholder h-[175px]"></div>
     </div>
     <div class="mt-[20px] flex justify-start gap-[20px]">
-      <div class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
-      <div class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
     </div>
     <div
-        class="max-w-[200px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
-        role="button"
-        tabindex="0"
-        onclick={() => openPage("spot9", ListeningPage)}
-        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot9", ListeningPage); }}
+      class="max-w-[200px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      role="button"
+      tabindex="0"
+      onclick={() => openPage("spot9", ListeningPage)}
+      onkeydown={(e) => {
+        if (e.key === "Enter" || e.key === " ")
+          openPage("spot9", ListeningPage);
+      }}
+    >
+      <span class="font-normal text-[14px] text-[#4C86FF]"
+        >See Archived List</span
       >
-        <span class="font-normal text-[14px] text-[#4C86FF]">See Archived List</span>
-      </div>
+    </div>
     <hr class="separator mt-[40px] mb-[40px]" />
     <p class="jbm font-bold text-[20px] text-[#d0d0d0]">
       Currently Watching: 13 Reasons Why (Netflix)
@@ -80,18 +97,27 @@
       <div class="image-placeholder h-[175px]"></div>
     </div>
     <div class="mt-[20px] flex justify-start gap-[20px]">
-      <div class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
-      <div class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
     </div>
     <div
-        class="max-w-[200px] mb-[80px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
-        role="button"
-        tabindex="0"
-        onclick={() => openPage("spot10", WatchingPage)}
-        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPage("spot10", WatchingPage); }}
+      class="max-w-[200px] mb-[80px] mt-[20px] py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+      role="button"
+      tabindex="0"
+      onclick={() => openPage("spot10", WatchingPage)}
+      onkeydown={(e) => {
+        if (e.key === "Enter" || e.key === " ")
+          openPage("spot10", WatchingPage);
+      }}
+    >
+      <span class="font-normal text-[14px] text-[#4C86FF]"
+        >See Archived List</span
       >
-        <span class="font-normal text-[14px] text-[#4C86FF]">See Archived List</span>
-      </div>
+    </div>
   </div>
 </div>
 
@@ -139,6 +165,8 @@
   .scrollable-section {
     max-height: calc(100%); /* Subtract the height of the pagination */
     overflow: auto; /* Enable scrolling */
+    scrollbar-width: none;
+    -moz-scrollbar-width: none;
   }
 
   .scrollable-section::-webkit-scrollbar {
