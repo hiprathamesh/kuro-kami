@@ -15,6 +15,8 @@
 	export let className: string | undefined = undefined;
 	export let interactive: boolean | undefined = false;
 	export let containerClassName: string | undefined = undefined;
+	export const firefoxBlurAmount: string = '30px';
+	export const defaultBlurAmount: string = '40px';
 
 	const colorSets = [
 		//{ second: '255,210,45' },
@@ -127,60 +129,85 @@
 		</defs>
 	</svg>
 	<div class={cn('', className)}><slot /></div>
-	<div class="gradients-container h-full w-full [filter:url(#blurMe)_blur(40px)]">
-		<div
-			class={cn(
-				`absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
-				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-				`[transform-origin:center_center]`,
-				`opacity-100`
-			)}
-		></div>
-		<div
-			class={cn(
-				`absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
-				`left-[calc(50%-var(--size)/2)] top-[20%] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-				`[transform-origin:100%]`,
-				 `animate-firsty`,
-				`opacity-100`
-			)}
-		></div>
-		<!-- <div
-			class={cn(
-				`absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`,
-				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-				`[transform-origin:calc(50%+400px)]`,
-				`opacity-100`
-			)}
-		></div>
-		<div
-			class={cn(
-				`absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat]`,
-				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-				`[transform-origin:calc(50%-200px)]`,
-				`opacity-70`
-			)}
-		></div>
-		<div
-			class={cn(
-				`absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat]`,
-				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-				`[transform-origin:calc(50%-800px)_calc(50%+800px)]`,
-				`opacity-100`
-			)}
-		></div> -->
+	<div class="gradients-container h-full w-full">
+		<div class="blur-layer">
+			<div class="goo-layer">
+				<div
+					class={cn(
+						`absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
+						`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+						`[transform-origin:center_center]`,
+						`opacity-100`
+					)}
+				></div>
+				<div
+					class={cn(
+						`absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
+						`left-[calc(50%-var(--size)/2)] top-[20%] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+						`[transform-origin:100%]`,
+						`animate-firsty`,
+						`opacity-100`
+					)}
+				></div>
+				<!-- <div
+					class={cn(
+						`absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`,
+						`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+						`[transform-origin:calc(50%+400px)]`,
+						`opacity-100`
+					)}
+				></div>
+				<div
+					class={cn(
+						`absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat]`,
+						`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+						`[transform-origin:calc(50%-200px)]`,
+						`opacity-70`
+					)}
+				></div>
+				<div
+					class={cn(
+						`absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat]`,
+						`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+						`[transform-origin:calc(50%-800px)_calc(50%+800px)]`,
+						`opacity-100`
+					)}
+				></div> -->
 
-		{#if interactive}
-			<div
-				bind:this={interactiveRef}
-				on:mousemove={handleMouseMove}
-				role="presentation"
-				class={cn(
-					`absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
-					`-left-1/2 -top-1/2 h-full w-full [mix-blend-mode:var(--blending-value)]`,
-					`opacity-70`
-				)}
-			></div>
-		{/if}
+				{#if interactive}
+					<div
+						bind:this={interactiveRef}
+						on:mousemove={handleMouseMove}
+						role="presentation"
+						class={cn(
+							`absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
+							`-left-1/2 -top-1/2 h-full w-full [mix-blend-mode:var(--blending-value)]`,
+							`opacity-70`
+						)}
+					></div>
+				{/if}
+			</div>
+		</div>
 	</div>
 </div>
+
+<style>
+  .blur-layer {
+    height: 100%;
+    width: 100%;
+    filter: blur(var(--blur-amount, 40px));
+  }
+
+  .goo-layer {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Firefox-specific styles */
+  @-moz-document url-prefix() {
+    .blur-layer {
+      --blur-amount: 30px;
+      transform-style: preserve-3d;
+    }
+  }
+</style>
