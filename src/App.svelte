@@ -845,14 +845,6 @@
     height: 100vh;
     width: fit-content;
   }
-
-  :global(.head-first) {
-    font-size: 45px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 30px;
-  }
-
   span {
     height: fit-content;
     line-height: 1;
@@ -979,36 +971,57 @@
   /* Mobile layout (320px to 767px) */
   @media screen and (max-width: 767px) {
     .container {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-rows: 125px 150px 150px 140px;
+      grid-template-columns: 170px 60px 120px;
       gap: 12px;
-      padding: 12px;
     }
-
-    .item1,
-    .item2,
-    .item3,
-    .item4,
-    .item5,
-    .item6,
+    
+    .item1 {
+      grid-area: 1/1/2/2;
+    }
+    
+    .item2 {
+      grid-area: 1/2/2/4;
+    }
+    
+    .item3 {
+      grid-area: 3/1/5/2;
+    }
+    
+    .item4 {
+      grid-area: 2/1/3/4;
+    }
+    
+    .item5 {
+      grid-area: 3/2/4/4;
+    }
+    
+    .item6 {
+      grid-area: 4/2/5/3;
+    }
+    
     .item7 {
-      grid-area: auto;
+      grid-area: 4/3/5/4;
     }
 
     .item {
-      height: 180px; /* Shorter height for mobile */
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .item-star {
+      border-radius: 16px;
     }
 
     .emoji {
-      width: 24px; /* Smaller emoji for mobile */
-      height: 24px;
+      width: 14px; /* Smaller emoji for mobile */
+      height: 14px;
+      margin-right: 5px;
     }
 
     span {
       font-size: 14px; /* Smaller text for mobile */
-    }
-
-    picture img {
-      max-height: 80%; /* Slightly smaller images */
     }
   }
 

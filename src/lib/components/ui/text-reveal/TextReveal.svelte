@@ -18,7 +18,7 @@
 </script>
 
 <div class={cn("font-bold", className)}>
-  <div class=" text-[45px] text-black dark:text-white">
+  <div class="head-second">
     <Motion
       let:motion
       custom={0}
@@ -37,7 +37,7 @@
           >
             <span
               use:motion
-              class="text-black dark:text-white"
+
               style="white-space: pre;"
             >
               {char}
@@ -48,3 +48,18 @@
     </Motion>
   </div>
 </div>
+
+<style>
+  .head-second {
+    font-size: 45px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+  }
+  @media screen and (max-width: 767px) {
+    .head-second {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+  }
+</style>
