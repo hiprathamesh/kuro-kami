@@ -60,8 +60,7 @@
 		backgroundColor?: string;
 	}
 
-	export let starCount: number = 50;
-	export let backgroundColor: string = 'black';
+	export let backgroundColor: string = 'rgba(41,41,41,1)';
 
 	let canvasElement: HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D;
@@ -76,13 +75,19 @@
 	const DECELERATION_FACTOR = 0.98; // Reduce velocity by 5% each frame during deceleration
 
 	function initStars(width: number, height: number): void {
-		stars = Array.from({ length: starCount }, (_, i) => {
+		const isMobile = window.innerWidth < 768;
+		const currentStarCount = isMobile ? 50 : 100;
+		
+		stars = Array.from({ length: currentStarCount }, (_, i) => {
 			const angle = Math.random() * Math.PI * 2;
-			const length = (i / starCount) * Math.random() / 5;
+			const length = (i / currentStarCount) * Math.random() / 5;
 			return new Star({
 				x: Math.random() * width,
 				y: Math.random() * height,
-				radius: Math.max(0.75, i / starCount * 2.25),
+				radius: Math.max(
+					isMobile ? 0.4 : 0.75, 
+					i / currentStarCount * (isMobile ? 1.15 : 2.25)
+				),
 				angle,
 				length
 			});

@@ -381,40 +381,54 @@
     const grid7 = document.querySelector(".item7") as HTMLElement;
     let duration = 0.5;
     function resetGridSmoothly() {
-      const slots = [
+      // Define slot configurations based on screen width
+      const desktopSlots = [
         { slot: "slot1", area: "1/1/2/2" },
         { slot: "slot2", area: "1/2/2/3" },
         { slot: "slot3", area: "1/3/3/4" },
         { slot: "slot4", area: "2/1/3/3" },
         { slot: "slot5", area: "1/4/2/6" },
         { slot: "slot6", area: "2/4/3/5" },
-        { slot: "slot7", area: "2/5/3/6" },
+        { slot: "slot7", area: "2/5/3/6" }
       ];
-
+      
+      const mobileSlots = [
+        { slot: "slot1", area: "1/1/2/2" },
+        { slot: "slot2", area: "1/2/2/4" },
+        { slot: "slot3", area: "3/1/5/2" },
+        { slot: "slot4", area: "2/1/3/4" },
+        { slot: "slot5", area: "3/2/4/4" },
+        { slot: "slot6", area: "4/2/5/3" },
+        { slot: "slot7", area: "4/3/5/4" }
+      ];
+      
+      // Choose slots based on window width
+      const slots = window.innerWidth <= 768 ? mobileSlots : desktopSlots;
+    
       // Create a timeline for the reset animation
       const resetTimeline = gsap.timeline();
-
+    
       // First, fade out all items
       resetTimeline.to(".section", {
         opacity: 0,
         duration: 0.4,
         ease: "power1.in",
       });
-
+    
       // Then reset grid positions
       resetTimeline.add(() => {
         slots.forEach(({ slot, area }) => {
           const items = document.querySelector(
             `[data-swapy-item="${slot}"]`
           ) as HTMLElement;
-
+    
           const gridContainer = document.querySelector(
             "[data-grid-container]"
           ) as HTMLElement;
-
+    
           if (items && gridContainer) {
             const itemParent = items.parentElement as HTMLElement;
-
+    
             itemParent.style.gridArea = area;
             itemParent.style.position = "static";
             itemParent.style.top = "auto";
@@ -424,7 +438,7 @@
           }
         });
       });
-
+    
       // Finally, fade in the items
       resetTimeline.to(".section", {
         delay: 0.6,
@@ -685,7 +699,7 @@
                 tabindex="0"
                 use:magneticHover={{ intensity: 50, scale: 0.95 }}
               >
-                <Stars starCount={100} backgroundColor="rgba(41,41,41,1)" />
+                <Stars />
               </div>
             </div>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -938,42 +952,12 @@
     grid-area: 2/5/3/6;
   }
 
-  /* Tablet layout (768px to 1024px) */
-  @media screen and (max-width: 1024px) {
-    .container {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .item1 {
-      grid-area: 1/1/2/3;
-    }
-    .item2 {
-      grid-area: 1/3/2/5;
-    }
-    .item3 {
-      grid-area: 2/1/3/3;
-    }
-    .item4 {
-      grid-area: 2/3/3/5;
-    }
-    .item5 {
-      grid-area: 3/1/4/2;
-    }
-    .item6 {
-      grid-area: 3/2/4/3;
-    }
-    .item7 {
-      grid-area: 3/3/4/5;
-    }
-  }
-
   /* Mobile layout (320px to 767px) */
   @media screen and (max-width: 767px) {
     .container {
       display: grid;
-      grid-template-rows: 125px 150px 150px 140px;
-      grid-template-columns: 170px 60px 120px;
+      grid-template-rows: 14.302vh 17.162vh 17.162vh 16.018vh;
+      grid-template-columns: 41.463vw 14.634vw 29.268vw;
       gap: 12px;
     }
     
@@ -988,7 +972,7 @@
     .item3 {
       grid-area: 3/1/5/2;
     }
-    
+
     .item4 {
       grid-area: 2/1/3/4;
     }
@@ -1008,10 +992,12 @@
     .item {
       border-radius: 16px;
       padding: 15px;
+      border: 0.8px solid rgba(255, 255, 255, 0.15);
     }
 
     .item-star {
       border-radius: 16px;
+      border: 0.8px solid rgba(255, 255, 255, 0.15);
     }
 
     .emoji {
@@ -1022,20 +1008,6 @@
 
     span {
       font-size: 14px; /* Smaller text for mobile */
-    }
-  }
-
-  /* Adjustments for smaller tablets */
-  @media screen and (max-width: 900px) {
-    .container {
-      padding: 15px;
-    }
-  }
-
-  /* Handle landscape mode on mobile */
-  @media screen and (max-width: 767px) and (orientation: landscape) {
-    .container {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
