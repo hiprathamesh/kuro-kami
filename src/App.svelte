@@ -467,7 +467,7 @@
     >
       <div class="outer">
         <div class="button1 cursor-pointer">
-          <TextRevealEffect {words} className="head-first" />
+          <TextRevealEffect {words} className="head-first select-none" />
         </div>
         <div class="wrapper">
           <div class="container popo" data-grid-container>
