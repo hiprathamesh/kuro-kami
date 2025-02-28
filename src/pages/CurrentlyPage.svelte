@@ -191,4 +191,5 @@
   .scrollable-section::-webkit-scrollbar {
     display: none; /* Hide scrollbar in WebKit browsers */
   }
+  
 </style>
