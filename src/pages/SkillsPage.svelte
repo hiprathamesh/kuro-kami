@@ -11,13 +11,13 @@
     <img
       src="/static/emojis/hammer.png"
       alt="stat"
-      class="emoji h-[40px] mr-[10px]"
+      class="emoji h-[30px] mr-[8px] md:h-[40px] md:mr-[10px]"
     />
     <span class="heading">Skills I Can</span>
   </div>
-  <span class="quote">
+  <p class="quote">
     "Creativity is intelligence having fun." ~ Albert Einstein
-  </span>
+  </p>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
@@ -785,4 +785,20 @@
     font-size: 9px;
     margin-top: 12px;
   }
+
+  @media screen and (max-width: 767px) {
+    .heading {
+      font-size: 20px;
+    }
+
+    .quote {
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .page-text {
+      font-size: 10.5px;
+    }
+  }
+
 </style>

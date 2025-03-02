@@ -103,7 +103,35 @@
     );
   }
   let swapy;
-  const words = `Hey, Prathamesh here!`;
+
+  // Function to get time-based greeting
+  function getGreeting(): string {
+    const hour = new Date().getHours();
+    // Check if the screen is mobile width (under 768px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    
+    // Base greeting depending on time of day
+    let greeting = "";
+    if (hour >= 5 && hour < 12) {
+      greeting = "Good morning,";
+    } else if (hour >= 12 && hour < 18) {
+      greeting = "Good afternoon,";
+    } else {
+      greeting = "Good evening,";
+    }
+    
+    // Add line break for mobile - using an HTML approach
+    if (isMobile) {
+      // Use a custom delimiter that we can handle with CSS
+      return `${greeting}<br>Prathamesh here!`;
+    } else {
+      return `${greeting} Prathamesh here!`;
+    }
+  }
+
+  // Replace the static greeting with a dynamic one
+  const words = getGreeting();
+
   let ani = "back.out(1.5)";
   onMount(() => {
     // Ensure the container exists before initializing Swapy
@@ -389,9 +417,9 @@
         { slot: "slot4", area: "2/1/3/3" },
         { slot: "slot5", area: "1/4/2/6" },
         { slot: "slot6", area: "2/4/3/5" },
-        { slot: "slot7", area: "2/5/3/6" }
+        { slot: "slot7", area: "2/5/3/6" },
       ];
-      
+
       const mobileSlots = [
         { slot: "slot1", area: "1/1/2/2" },
         { slot: "slot2", area: "1/2/2/4" },
@@ -399,36 +427,36 @@
         { slot: "slot4", area: "2/1/3/4" },
         { slot: "slot5", area: "3/2/4/4" },
         { slot: "slot6", area: "4/2/5/3" },
-        { slot: "slot7", area: "4/3/5/4" }
+        { slot: "slot7", area: "4/3/5/4" },
       ];
-      
+
       // Choose slots based on window width
       const slots = window.innerWidth <= 768 ? mobileSlots : desktopSlots;
-    
+
       // Create a timeline for the reset animation
       const resetTimeline = gsap.timeline();
-    
+
       // First, fade out all items
       resetTimeline.to(".section", {
         opacity: 0,
         duration: 0.4,
         ease: "power1.in",
       });
-    
+
       // Then reset grid positions
       resetTimeline.add(() => {
         slots.forEach(({ slot, area }) => {
           const items = document.querySelector(
             `[data-swapy-item="${slot}"]`
           ) as HTMLElement;
-    
+
           const gridContainer = document.querySelector(
             "[data-grid-container]"
           ) as HTMLElement;
-    
+
           if (items && gridContainer) {
             const itemParent = items.parentElement as HTMLElement;
-    
+
             itemParent.style.gridArea = area;
             itemParent.style.position = "static";
             itemParent.style.top = "auto";
@@ -438,7 +466,7 @@
           }
         });
       });
-    
+
       // Finally, fade in the items
       resetTimeline.to(".section", {
         delay: 0.6,
@@ -460,14 +488,22 @@
 </script>
 
 <main>
-  <PageManager bind:this={pageManager} />
+  <PageManager
+    bind:this={pageManager}
+    on:open-page={(event) => {
+      const { id } = event.detail;
+      if (pageComponents[id]) {
+        pageManager.openPage(id, pageComponents[id]);
+      }
+    }}
+  />
   <GradientAnimation>
     <div
       class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-50"
     >
       <div class="outer">
         <div class="button1 cursor-pointer">
-          <TextRevealEffect {words} className="head-first select-none" />
+          <TextRevealEffect {words} className="head-first select-none mobile-greeting" />
         </div>
         <div class="wrapper">
           <div class="container popo" data-grid-container>
@@ -960,15 +996,15 @@
       grid-template-columns: 41.463vw 14.634vw 29.268vw;
       gap: 12px;
     }
-    
+
     .item1 {
       grid-area: 1/1/2/2;
     }
-    
+
     .item2 {
       grid-area: 1/2/2/4;
     }
-    
+
     .item3 {
       grid-area: 3/1/5/2;
     }
@@ -976,15 +1012,15 @@
     .item4 {
       grid-area: 2/1/3/4;
     }
-    
+
     .item5 {
       grid-area: 3/2/4/4;
     }
-    
+
     .item6 {
       grid-area: 4/2/5/3;
     }
-    
+
     .item7 {
       grid-area: 4/3/5/4;
     }
@@ -1001,13 +1037,39 @@
     }
 
     .emoji {
-      width: 14px; /* Smaller emoji for mobile */
-      height: 14px;
-      margin-right: 5px;
+      width: 15px; /* Smaller emoji for mobile */
+      height: 15px;
+      margin-right: 6px;
     }
 
     span {
-      font-size: 14px; /* Smaller text for mobile */
+      font-size: 15px; /* Smaller text for mobile */
+    }
+    
+    /* Make sure each "line" gets proper styling in the greeting */
+    :global(.mobile-greeting > div > div) {
+      width: 100%;
+      justify-content: flex-start; /* Align text to the left */
+      letter-spacing: -0.3em; /* Tighten letter spacing slightly */
+    }
+    
+    /* Target the individual character spans */
+    :global(.mobile-greeting span) {
+      letter-spacing: normal; /* Reset any inherited letter spacing */
+      margin-right: 0; /* Remove any right margin */
+    }
+    
+    /* Add specific spacing to the second line */
+    :global(.mobile-greeting > div > div > div:nth-child(2)) {
+      margin-top: 0.25em !important; /* Less space between lines */
+    }
+
+    .outer{
+      margin-top: -10vh;
+    }
+
+    .marquee-container {
+      display: none;
     }
   }
 </style>

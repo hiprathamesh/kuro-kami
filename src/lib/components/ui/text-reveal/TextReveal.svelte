@@ -27,23 +27,41 @@
       animate={"visible"}
     >
       <div use:motion style="display: flex; flex-wrap: wrap; gap: 0;">
-        {#each words.split("") as char, idx (`${char}${idx}`)}
-          <Motion
-            let:motion
-            {variants}
-            custom={idx + 1}
-            initial="hidden"
-            animate={"visible"}
-          >
-            <span
-              use:motion
-
-              style="white-space: pre;"
+        {#if words.includes("<br>")}
+          <!-- Handle the case with a line break for mobile -->
+          {#each words.split("<br>") as line, lineIdx}
+            <div style="width: 100%; {lineIdx > 0 ? 'margin-top: 0.25em;' : ''}">
+              {#each line.split("") as char, idx (`${line}${char}${idx}`)}
+                <Motion
+                  let:motion
+                  {variants}
+                  custom={idx + 1 + (lineIdx * 20)}
+                  initial="hidden"
+                  animate={"visible"}
+                >
+                  <span use:motion style="white-space: pre;">
+                    {char}
+                  </span>
+                </Motion>
+              {/each}
+            </div>
+          {/each}
+        {:else}
+          <!-- Regular case without line break -->
+          {#each words.split("") as char, idx (`${char}${idx}`)}
+            <Motion
+              let:motion
+              {variants}
+              custom={idx + 1}
+              initial="hidden"
+              animate={"visible"}
             >
-              {char}
-            </span>
-          </Motion>
-        {/each}
+              <span use:motion style="white-space: pre;">
+                {char}
+              </span>
+            </Motion>
+          {/each}
+        {/if}
       </div>
     </Motion>
   </div>
@@ -55,11 +73,13 @@
     font-weight: 700;
     color: white;
     margin-bottom: 30px;
+    line-height: 1.1; /* Add a tighter line height */
   }
   @media screen and (max-width: 767px) {
     .head-second {
       font-size: 30px;
-      margin-bottom: 15px;
+      margin-bottom: 24px;
+      line-height: 1; /* Even tighter for mobile */
     }
   }
 </style>

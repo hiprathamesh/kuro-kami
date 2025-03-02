@@ -89,13 +89,13 @@
     <img
       src="/static/emojis/envelope.png"
       alt="stat"
-      class="emoji h-[40px] mr-[10px]"
+      class="emoji h-[30px] mr-[8px] md:h-[40px] md:mr-[10px]"
     />
     <span class="heading">Contact Here</span>
   </div>
-  <span class="quote">
+  <p class="quote">
     "The most important thing in communication is hearing what isn’t said." ~ Peter Drucker
-  </span>
+  </p>
   <hr class="separator mt-[10px]" />
   {#if error}
     <div class="error-message jbm font-medium">{error}</div>
@@ -429,6 +429,21 @@
 
   .scrollable-section::-webkit-scrollbar {
     display: none; /* Hide scrollbar in WebKit browsers */
+  }
+
+  @media screen and (max-width: 767px) {
+    .heading {
+      font-size: 20px;
+    }
+
+    .quote {
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .page-text {
+      font-size: 10.5px;
+    }
   }
   
 </style>

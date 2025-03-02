@@ -18,11 +18,11 @@
     <img
       src="/static/emojis/headphone.png"
       alt="headphone"
-      class="emoji h-[40px] mr-[10px]"
+      class="emoji h-[30px] mr-[8px] md:h-[40px] md:mr-[10px]"
     />
     <span class="heading">Currently Listening (Archive)</span>
   </div>
-  <span class="quote"> "The only truth is music." ~ Jack Kerouac </span>
+  <p class="quote"> "The only truth is music." ~ Jack Kerouac </p>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
@@ -74,4 +74,20 @@
   .scrollable-section::-webkit-scrollbar {
     display: none; /* Hide scrollbar in WebKit browsers */
   }
+
+  @media screen and (max-width: 767px) {
+    .heading {
+      font-size: 20px;
+    }
+
+    .quote {
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    /* .page-text {
+      font-size: 10.5px;
+    } */
+  }
+
 </style>

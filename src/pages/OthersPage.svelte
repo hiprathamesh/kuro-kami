@@ -9,34 +9,34 @@
 </script>
 
 <div class="page-content" id="pagee" transition:fade>
-  <div class="flex items-end mb-[30px]">
+  <div class="flex items-end mb-[20px] md:mb-[30px]">
     <img
       src="/static/emojis/umbrella.png"
       alt="stat"
-      class="emoji h-[40px] mr-[10px]"
+      class="emoji h-[30px] mr-[8px] md:h-[40px] md:mr-[10px]"
     />
     <span class="heading">Other Than Work</span>
   </div>
-  <span class="quote">
+  <p class="quote">
     "Life is what happens when you’re busy making other plans." ~ John Lennon
-  </span>
+  </p>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
     <div class="justify-center flex w-full h-fit">
-      <div class="image-placeholder h-[200px]"></div>
+      <div class="image-placeholder h-[150px] md:h-[200px]"></div>
     </div>
-    <p class="page-text mt-[40px]">
+    <p class="page-text mt-[30px] md:mt-[40px]">
       I am a designer line here and more. Project boolean italic edit
       strikethrough device component community fill. Italic selection project
       reesizing flows. Thumbnail auto scale text boolean link strikethrough link
       italic stroke. Pixel font flows follower team fill.
     </p>
-    <hr class="separator mt-[40px] mb-[40px]" />
-    <p class="jbm font-bold text-[20px] text-[#d0d0d0]">
+    <hr class="separator mt-[30px] md:mt-[40px] mb-[30px] md:mb-[40px]" />
+    <p class="jbm font-bold text-[18px] md:text-[20px] text-[#d0d0d0]">
       Currently Playing: It Takes Two (EA Sports Inc.)
     </p>
-    <div class="justify-center flex w-[400px] flex-col mt-[30px]">
+    <div class="justify-center flex w-full md:w-[400px] flex-col mt-[30px]">
       <div class="image-placeholder h-[175px]"></div>
     </div>
     <div class="mt-[20px] flex justify-start gap-[20px]">
@@ -61,7 +61,7 @@
       >
     </div>
     <hr class="separator mt-[40px] mb-[40px]" />
-    <p class="jbm font-bold text-[20px] text-[#d0d0d0]">
+    <p class="jbm font-bold text-[18px] md:text-[20px] text-[#d0d0d0]">
       Currently Listening: Lemonade (Beyoncé)
     </p>
     <div class="justify-center flex w-[175px] flex-col mt-[30px]">
@@ -90,7 +90,7 @@
       >
     </div>
     <hr class="separator mt-[40px] mb-[40px]" />
-    <p class="jbm font-bold text-[20px] text-[#d0d0d0]">
+    <p class="jbm font-bold text-[18px] md:text-[20px] text-[#d0d0d0]">
       Currently Watching: 13 Reasons Why (Netflix)
     </p>
     <div class="justify-center flex w-[300px] flex-col mt-[30px]">
@@ -178,4 +178,20 @@
     width: 100%;
     border-radius: 12px;
   }
+
+  @media screen and (max-width: 767px) {
+    .heading {
+      font-size: 20px;
+    }
+
+    .quote {
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .page-text {
+      font-size: 10.5px;
+    }
+  }
+  
 </style>
