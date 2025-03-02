@@ -11,6 +11,7 @@
   let error = "";
   let success = false;
   let phone = false;
+  let discord = false;
 
   function copyPhoneNumber() {
     const phoneNumber = "+91 95618 78909";
@@ -24,10 +25,26 @@
     });
   }
 
+  function copyDiscord() {
+    const username = "r0yalp";
+    navigator.clipboard.writeText(username).then(() => {
+      discord = true;
+      setTimeout(() => {
+        discord = false;
+      }, 3000);
+    }).catch(err => {
+      console.error('Failed to copy discord ID: ', err);
+    });
+  }
+
   onMount(() => {
     const phoneButton = document.querySelector(".phone");
     if (phoneButton) {
       phoneButton.addEventListener('click', copyPhoneNumber);
+    }
+    const discordButton = document.querySelector(".discord");
+    if (discordButton) {
+      discordButton.addEventListener('click', copyDiscord);
     }
   });
 
@@ -111,6 +128,11 @@
       Phone number is copied to clipboard!
     </div>
   {/if}
+  {#if discord}
+    <div class="success-message jbm font-medium">
+      Discord ID is copied to clipboard!
+    </div>
+  {/if}
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
@@ -190,8 +212,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
-        class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        class="discord h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
           width="30"
@@ -215,7 +236,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
+        on:click={() => window.open('https://github.com/hiprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -247,7 +268,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
+        on:click={() => window.open('https://www.instagram.com/prathamesh.flac/', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -312,7 +333,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
+        on:click={() => window.open('https://t.me/r0yaIp)', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -337,7 +358,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
+        on:click={() => window.open('https://x.com/heyprathamesh', '_blank')}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
