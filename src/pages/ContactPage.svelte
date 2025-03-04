@@ -15,36 +15,42 @@
 
   function copyPhoneNumber() {
     const phoneNumber = "+91 95618 78909";
-    navigator.clipboard.writeText(phoneNumber).then(() => {
-      phone = true;
-      setTimeout(() => {
-        phone = false;
-      }, 3000);
-    }).catch(err => {
-      console.error('Failed to copy phone number: ', err);
-    });
+    navigator.clipboard
+      .writeText(phoneNumber)
+      .then(() => {
+        phone = true;
+        setTimeout(() => {
+          phone = false;
+        }, 3000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy phone number: ", err);
+      });
   }
 
   function copyDiscord() {
     const username = "r0yalp";
-    navigator.clipboard.writeText(username).then(() => {
-      discord = true;
-      setTimeout(() => {
-        discord = false;
-      }, 3000);
-    }).catch(err => {
-      console.error('Failed to copy discord ID: ', err);
-    });
+    navigator.clipboard
+      .writeText(username)
+      .then(() => {
+        discord = true;
+        setTimeout(() => {
+          discord = false;
+        }, 3000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy discord ID: ", err);
+      });
   }
 
   onMount(() => {
     const phoneButton = document.querySelector(".phone");
     if (phoneButton) {
-      phoneButton.addEventListener('click', copyPhoneNumber);
+      phoneButton.addEventListener("click", copyPhoneNumber);
     }
     const discordButton = document.querySelector(".discord");
     if (discordButton) {
-      discordButton.addEventListener('click', copyDiscord);
+      discordButton.addEventListener("click", copyDiscord);
     }
   });
 
@@ -111,7 +117,8 @@
     <span class="heading">Contact Here</span>
   </div>
   <p class="quote">
-    "The most important thing in communication is hearing what isn’t said." ~ Peter Drucker
+    "The most important thing in communication is hearing what isn’t said." ~
+    Peter Drucker
   </p>
   <hr class="separator mt-[10px]" />
   {#if error}
@@ -136,48 +143,58 @@
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
-      You can reach out to me by filling out the form below. I'll get back to you as soon as possible.
+      You can reach out to me by filling out the form below. I'll get back to
+      you as soon as possible.
     </p>
     <form on:submit|preventDefault={sendEmail}>
       <textarea
         id="message"
         name="message"
         bind:value={message}
-        class="txt-area w-full h-[250px] mt-[30px] pt-[15px] pl-[20px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[10px] placeholder-[#808080] placeholder-opacity-50 italic"
+        class="txt-area w-full h-[200px] md:h-[250px] mt-[30px] pt-[15px] pl-[20px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[10px] placeholder-[#808080] placeholder-opacity-50 italic"
         placeholder="let me know what you think..."
       ></textarea>
 
-      <div class="flex justify-between mt-[40px] items-center">
-        <span class="page-text">by</span>
-        <input
-          bind:value={name}
-          id="name"
-          name="from_name"
-          type="text"
-          class="txt-area w-[200px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
-          placeholder="Yagami Raito..."
-        />
-        <span class="page-text">, get back to me at</span>
-        <input
-          bind:value={email}
-          id="email"
-          name="from_email"
-          class="txt-area w-[300px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
-          placeholder="yagami-raito @ death-note.com..."
-        />
+      <div
+        class="flex flex-wrap gap-y-[10px] justify-between mt-[40px] items-center"
+      >
+        <div class="flex items-center gap-[15px]">
+          <span class="page-text truncate">by</span>
+          <input
+            bind:value={name}
+            id="name"
+            name="from_name"
+            type="text"
+            class="txt-area w-[150px] md:w-[200px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
+            placeholder="Yagami Raito..."
+          />
+        </div>
+        <div class="flex items-center gap-[15px] max-w-[400px] w-full">
+          <span class="page-text truncate">, get back to me at</span>
+          <input
+            bind:value={email}
+            id="email"
+            name="from_email"
+            class="txt-area w-[250px] md:w-[300px] h-[40px] pl-[10px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] rounded-[5px] placeholder-[#808080] placeholder-opacity-50 italic"
+            placeholder="yagami-raito @ death-note.com..."
+          />
+        </div>
         <button
           type="submit"
           value="Send"
-          class="butt bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] text-[#4C86FF] py-[10px] px-[20px] rounded-[5px] cursor-pointer w-[100px] h-[40px] flex justify-center items-center"
+          class="butt ml-[5px] bg-[rgba(35,35,35,0.80)] border-[0.8px] border-solid border-[rgba(255,255,255,0.15)] text-[#4C86FF] py-[10px] px-[20px] rounded-[5px] cursor-pointer w-[100px] h-[40px] flex justify-center items-center"
         >
           {sending ? "Sending..." : "Send"}
         </button>
       </div>
     </form>
     <p class="page-text mt-[60px]">
-      Less preferably, you can ping me on any of the following platforms, also the old twitter logo is intentional :)
+      Less preferably, you can ping me on any of the following platforms, also
+      the old twitter logo is intentional :)
     </p>
-    <div class="mt-[40px] flex justify-center gap-[40px]">
+    <div
+      class="mt-[40px] flex justify-center flex-wrap gap-[40px] social-icons-container"
+    >
       <div
         class="phone h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
         use:tooltip={{
@@ -201,6 +218,45 @@
             d="M36.8948 34.2019C36.5437 34.5799 36.1837 34.922 35.7967 35.3C35.2116 35.858 34.6176 36.4431 34.0596 37.1001C33.1505 38.0722 32.0794 38.5312 30.6753 38.5312C30.5403 38.5312 30.3963 38.5312 30.2613 38.5222C27.5881 38.3512 25.1039 37.3071 23.2408 36.4161C18.1464 33.9499 13.673 30.4486 9.95577 26.0113C6.88654 22.312 4.83439 18.8918 3.47529 15.2195C2.63823 12.9783 2.33221 11.2322 2.46722 9.58509C2.55722 8.53201 2.96225 7.65895 3.70931 6.91189L6.77854 3.84266C7.21957 3.42863 7.6876 3.20362 8.14664 3.20362C8.71368 3.20362 9.17271 3.54564 9.46074 3.83366L9.48774 3.86067C10.0368 4.3737 10.5588 4.90474 11.1079 5.47179C11.3869 5.75981 11.6749 6.04783 11.9629 6.34485L14.4201 8.80203C15.3742 9.7561 15.3742 10.6382 14.4201 11.5922C14.1591 11.8533 13.9071 12.1143 13.646 12.3663C12.89 13.1404 12.1699 13.8604 11.3869 14.5625C11.3689 14.5805 11.3509 14.5895 11.3419 14.6075C10.5678 15.3815 10.7118 16.1376 10.8738 16.6506L10.9008 16.7316C11.5399 18.2797 12.44 19.7378 13.8081 21.475L13.8171 21.484C16.3012 24.5442 18.9204 26.9294 21.8097 28.7565C22.1787 28.9905 22.5567 29.1795 22.9167 29.3596C23.2408 29.5216 23.5468 29.6746 23.8078 29.8366C23.8438 29.8546 23.8798 29.8816 23.9158 29.8996C24.2218 30.0526 24.5098 30.1246 24.8069 30.1246C25.5539 30.1246 26.022 29.6566 26.175 29.5036L29.2532 26.4253C29.5592 26.1193 30.0453 25.7503 30.6123 25.7503C31.1703 25.7503 31.6294 26.1013 31.9084 26.4073L31.9264 26.4253L36.8858 31.3847C37.8128 32.3028 37.8128 33.2478 36.8948 34.2019Z"
             fill="white"
             fill-opacity="0.25"
+          />
+        </svg>
+      </div>
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
+      <div
+        class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        use:tooltip={{
+          text: "Mail",
+          position: "bottom",
+        }}
+        role="button"
+        tabindex="0"
+        on:click={() => window.open("mailto:nikam@duck.com", "_blank")}
+      >
+        <svg
+          width="35"
+          height="35"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
+            stroke="#FFFFFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-opacity="0.25"
+          />
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="2"
+            stroke="#FFFFFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-opacity="0.25"
           />
         </svg>
       </div>
@@ -236,7 +292,8 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://github.com/hiprathamesh', '_blank')}
+        on:click={() =>
+          window.open("https://github.com/hiprathamesh", "_blank")}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -268,7 +325,8 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.instagram.com/prathamesh.flac/', '_blank')}
+        on:click={() =>
+          window.open("https://www.instagram.com/prathamesh.flac/", "_blank")}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -299,7 +357,8 @@
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://www.linkedin.com/in/hiprathamesh', '_blank')}
+        on:click={() =>
+          window.open("https://www.linkedin.com/in/hiprathamesh", "_blank")}
       >
         <svg
           width="25"
@@ -333,7 +392,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://t.me/r0yaIp)', '_blank')}
+        on:click={() => window.open("https://t.me/r0yaIp)", "_blank")}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -358,7 +417,7 @@
         }}
         role="button"
         tabindex="0"
-        on:click={() => window.open('https://x.com/heyprathamesh', '_blank')}
+        on:click={() => window.open("https://x.com/heyprathamesh", "_blank")}
         class="h-[65px] w-[65px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
       >
         <svg
@@ -452,6 +511,12 @@
     display: none; /* Hide scrollbar in WebKit browsers */
   }
 
+  .social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
   @media screen and (max-width: 767px) {
     .heading {
       font-size: 20px;
@@ -465,6 +530,12 @@
     .page-text {
       font-size: 10.5px;
     }
+
+    .social-icons-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
   }
-  
 </style>

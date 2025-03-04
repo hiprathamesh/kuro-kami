@@ -122,14 +122,16 @@
         </div>
 
         <!-- Navigation dots -->
-        <div class="carousel-dots">
-          {#each [0, 1] as dot, i}
-            <button
-              class="carousel-dot {currentSlide === i ? 'active' : ''}"
-              onclick={() => scrollToSlide(i)}
-              aria-label="Go to image {i + 1}"
-            ></button>
-          {/each}
+        <div class="carousel-dots h-fit">
+          <div class="flex justify-center items-center w-fit h-fit bg-[rgba(255,255,255,0.1)] rounded-[12px] p-[6px]">
+            {#each [0, 1] as dot, i}
+              <button
+                class="carousel-dot {currentSlide === i ? 'active' : ''}"
+                onclick={() => scrollToSlide(i)}
+                aria-label="Go to image {i + 1}"
+              ></button>
+            {/each}
+          </div>
         </div>
       </div>
     </div>
@@ -426,17 +428,15 @@
     .carousel-dots {
       display: flex;
       justify-content: center;
-      gap: 2px;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .carousel-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 80%;
       background-color: rgba(76, 134, 255, 0.3);
       border: none;
-      padding: 0;
       margin: 0 5px;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -446,7 +446,6 @@
     .carousel-dot.active {
       background-color: #4c86ff;
       opacity: 1;
-      transform: scale(1.05); /* Slightly enlarge the active dot */
     }
   }
 </style>

@@ -28,7 +28,9 @@
       frameworks, and continuously strive to improve my skills.
     </p>
 
-    <div class="mt-[40px] flex justify-center gap-[40px]">
+    <div
+      class="no-scroll mt-[40px] w-full flex justify-start md:justify-center gap-[40px] overflow-x-auto"
+    >
       <div>
         <div
           class="h-[80px] w-[80px] mb-[10px] bg-[rgb(35,35,35)] rounded-[8px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
@@ -282,28 +284,58 @@
       frameworks. These include web development frameworks like React, NextJS,
       and Svelte, as well as backend frameworks such as NodeJS.
     </p>
-    <div class="mt-[40px] flex justify-center gap-[40px]">
+    <div
+      class="no-scroll mt-[40px] flex justify-start md:justify-center gap-[40px] w-full overflow-x-auto"
+    >
       <div>
         <div
           class="h-[65px] w-[65px] mb-[8px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
         >
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.0005 40C31.0462 40 40.0005 31.0457 40.0005 20C40.0005 8.9543 31.0462 0 20.0005 0C8.95479 0 0.000488281 8.9543 0.000488281 20C0.000488281 31.0457 8.95479 40 20.0005 40Z" fill="black"/>
-          <path d="M33.2245 35.0044L15.3654 12H12.0005V27.9933H14.6925V15.4187L31.1114 36.6322C31.8512 36.1373 32.5571 35.5935 33.2245 35.0044Z" fill="url(#paint0_linear_828_99)"/>
-          <path d="M25.5557 12H28.2223V28H25.5557V12Z" fill="url(#paint1_linear_828_99)"/>
-          <defs>
-          <linearGradient id="paint0_linear_828_99" x1="24.2227" y1="25.8889" x2="32.1116" y2="35.6667" gradientUnits="userSpaceOnUse">
-          <stop stop-color="white"/>
-          <stop offset="1" stop-color="white" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="paint1_linear_828_99" x1="26.889" y1="12" x2="26.8443" y2="23.75" gradientUnits="userSpaceOnUse">
-          <stop stop-color="white"/>
-          <stop offset="1" stop-color="white" stop-opacity="0"/>
-          </linearGradient>
-          </defs>
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.0005 40C31.0462 40 40.0005 31.0457 40.0005 20C40.0005 8.9543 31.0462 0 20.0005 0C8.95479 0 0.000488281 8.9543 0.000488281 20C0.000488281 31.0457 8.95479 40 20.0005 40Z"
+              fill="black"
+            />
+            <path
+              d="M33.2245 35.0044L15.3654 12H12.0005V27.9933H14.6925V15.4187L31.1114 36.6322C31.8512 36.1373 32.5571 35.5935 33.2245 35.0044Z"
+              fill="url(#paint0_linear_828_99)"
+            />
+            <path
+              d="M25.5557 12H28.2223V28H25.5557V12Z"
+              fill="url(#paint1_linear_828_99)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_828_99"
+                x1="24.2227"
+                y1="25.8889"
+                x2="32.1116"
+                y2="35.6667"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_828_99"
+                x1="26.889"
+                y1="12"
+                x2="26.8443"
+                y2="23.75"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
           </svg>
-          
-      </div>
+        </div>
         <span class="font-normal text-[12px] text-[#D0D0D0]">NextJS</span>
         <div class="flex justify-between mt-[8px] items-center">
           <div class=" w-[6px] h-[6px] rounded-full bg-[#4C86FF]"></div>
@@ -442,11 +474,19 @@
         <div
           class="h-[65px] w-[65px] mb-[8px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.35px] border-solid border-[rgba(255,255,255,0.15)]"
         >
-        <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M29.2049 17.7106C28.8752 17.7106 28.553 17.6129 28.2789 17.4298C28.0048 17.2466 27.7912 16.9863 27.6651 16.6818C27.5389 16.3772 27.5059 16.0421 27.5702 15.7188C27.6345 15.3955 27.7933 15.0985 28.0264 14.8655C28.2594 14.6324 28.5564 14.4736 28.8797 14.4093C29.203 14.345 29.5381 14.378 29.8427 14.5042C30.1472 14.6303 30.4075 14.8439 30.5906 15.118C30.7738 15.3921 30.8715 15.7143 30.8715 16.044C30.8715 16.486 30.6959 16.9099 30.3834 17.2225C30.0708 17.535 29.6469 17.7106 29.2049 17.7106ZM10.7951 17.7106C10.4655 17.7106 10.1433 17.6129 9.86919 17.4298C9.59511 17.2466 9.38149 16.9863 9.25534 16.6818C9.12919 16.3772 9.09619 16.0421 9.1605 15.7188C9.22481 15.3955 9.38354 15.0985 9.61663 14.8655C9.84972 14.6324 10.1467 14.4736 10.47 14.4093C10.7933 14.345 11.1284 14.378 11.4329 14.5042C11.7375 14.6303 11.9978 14.8439 12.1809 15.118C12.3641 15.3921 12.4618 15.7143 12.4618 16.044C12.4618 16.486 12.2862 16.9099 11.9737 17.2225C11.6611 17.535 11.2372 17.7106 10.7951 17.7106ZM29.8021 7.6773L33.1313 1.91341C33.1842 1.83448 33.2204 1.74551 33.2376 1.65201C33.2548 1.55851 33.2526 1.46249 33.2312 1.36987C33.2097 1.27726 33.1695 1.19003 33.113 1.1136C33.0565 1.03716 32.9848 0.973144 32.9026 0.925509C32.8203 0.877874 32.7291 0.847636 32.6347 0.836669C32.5403 0.825701 32.4446 0.834237 32.3536 0.861748C32.2626 0.889259 32.1783 0.93516 32.1057 0.996606C32.0332 1.05805 31.974 1.13374 31.9319 1.21897L28.5611 7.05717C25.8686 5.84955 22.951 5.22523 20 5.22523C17.049 5.22523 14.1314 5.84955 11.4389 7.05717L8.06806 1.21897C8.02596 1.13374 7.96682 1.05805 7.89428 0.996606C7.82175 0.93516 7.73737 0.889259 7.64638 0.861748C7.55539 0.834237 7.45971 0.825701 7.36528 0.836669C7.27086 0.847636 7.17969 0.877874 7.09742 0.925509C7.01516 0.973144 6.94355 1.03716 6.88703 1.1136C6.83051 1.19003 6.79029 1.27726 6.76885 1.36987C6.74741 1.46249 6.74522 1.55851 6.7624 1.65201C6.77959 1.74551 6.81578 1.83448 6.86875 1.91341L10.1979 7.6773C4.48125 10.7863 0.572222 16.5731 0 23.4099H40C39.4278 16.5731 35.5181 10.7863 29.8021 7.6773Z" fill="#3DDB86"/>
+          <svg
+            width="40"
+            height="24"
+            viewBox="0 0 40 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M29.2049 17.7106C28.8752 17.7106 28.553 17.6129 28.2789 17.4298C28.0048 17.2466 27.7912 16.9863 27.6651 16.6818C27.5389 16.3772 27.5059 16.0421 27.5702 15.7188C27.6345 15.3955 27.7933 15.0985 28.0264 14.8655C28.2594 14.6324 28.5564 14.4736 28.8797 14.4093C29.203 14.345 29.5381 14.378 29.8427 14.5042C30.1472 14.6303 30.4075 14.8439 30.5906 15.118C30.7738 15.3921 30.8715 15.7143 30.8715 16.044C30.8715 16.486 30.6959 16.9099 30.3834 17.2225C30.0708 17.535 29.6469 17.7106 29.2049 17.7106ZM10.7951 17.7106C10.4655 17.7106 10.1433 17.6129 9.86919 17.4298C9.59511 17.2466 9.38149 16.9863 9.25534 16.6818C9.12919 16.3772 9.09619 16.0421 9.1605 15.7188C9.22481 15.3955 9.38354 15.0985 9.61663 14.8655C9.84972 14.6324 10.1467 14.4736 10.47 14.4093C10.7933 14.345 11.1284 14.378 11.4329 14.5042C11.7375 14.6303 11.9978 14.8439 12.1809 15.118C12.3641 15.3921 12.4618 15.7143 12.4618 16.044C12.4618 16.486 12.2862 16.9099 11.9737 17.2225C11.6611 17.535 11.2372 17.7106 10.7951 17.7106ZM29.8021 7.6773L33.1313 1.91341C33.1842 1.83448 33.2204 1.74551 33.2376 1.65201C33.2548 1.55851 33.2526 1.46249 33.2312 1.36987C33.2097 1.27726 33.1695 1.19003 33.113 1.1136C33.0565 1.03716 32.9848 0.973144 32.9026 0.925509C32.8203 0.877874 32.7291 0.847636 32.6347 0.836669C32.5403 0.825701 32.4446 0.834237 32.3536 0.861748C32.2626 0.889259 32.1783 0.93516 32.1057 0.996606C32.0332 1.05805 31.974 1.13374 31.9319 1.21897L28.5611 7.05717C25.8686 5.84955 22.951 5.22523 20 5.22523C17.049 5.22523 14.1314 5.84955 11.4389 7.05717L8.06806 1.21897C8.02596 1.13374 7.96682 1.05805 7.89428 0.996606C7.82175 0.93516 7.73737 0.889259 7.64638 0.861748C7.55539 0.834237 7.45971 0.825701 7.36528 0.836669C7.27086 0.847636 7.17969 0.877874 7.09742 0.925509C7.01516 0.973144 6.94355 1.03716 6.88703 1.1136C6.83051 1.19003 6.79029 1.27726 6.76885 1.36987C6.74741 1.46249 6.74522 1.55851 6.7624 1.65201C6.77959 1.74551 6.81578 1.83448 6.86875 1.91341L10.1979 7.6773C4.48125 10.7863 0.572222 16.5731 0 23.4099H40C39.4278 16.5731 35.5181 10.7863 29.8021 7.6773Z"
+              fill="#3DDB86"
+            />
           </svg>
-          
-      </div>
+        </div>
         <span class="font-normal text-[12px] text-[#D0D0D0]">Compose</span>
         <div class="flex justify-between mt-[8px] items-center">
           <div class=" w-[6px] h-[6px] rounded-full bg-[#4C86FF]"></div>
@@ -586,7 +626,7 @@
       and stay updated with the latest algorithms and techniques.
     </p>
 
-    <div class="flex gap-[15px] items-baseline mt-[20px]">
+    <div class="flex flex-wrap gap-[15px] items-baseline mt-[20px]">
       <p class="page-text">
         You can check my current ratings on these platforms at
       </p>
@@ -623,7 +663,7 @@
       experiences.
     </p>
     <div class="flex justify-between mt-[40px] items-center">
-      <div class="flex gap-[15px] items-end">
+      <div class="flex flex-wrap gap-[15px] items-end w-fit">
         <p class="page-text-h font-bold text-[16px]">Design Lead at</p>
         <div
           class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
@@ -632,7 +672,7 @@
         </div>
       </div>
       <div
-        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        class="h-[30px] md:h-[40px] w-[30px] md:w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
       ></div>
     </div>
     <div class="mt-[15px] p-0 h-fit">
@@ -647,7 +687,7 @@
       italic stroke. Pixel font flows follower team fill.
     </p>
     <div class="flex justify-between mt-[60px] items-center">
-      <div class="flex gap-[15px] items-end">
+      <div class="flex flex-wrap gap-[15px] items-end w-fit">
         <p class="page-text-h font-bold text-[16px]">FlutterFlow Designer at</p>
         <div
           class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
@@ -658,7 +698,7 @@
         </div>
       </div>
       <div
-        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        class="h-[30px] md:h-[40px] w-[30px] md:w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
       ></div>
     </div>
     <div class="mt-[15px] p-0 h-fit">
@@ -673,7 +713,7 @@
       italic stroke. Pixel font flows follower team fill.
     </p>
     <div class="flex justify-between mt-[60px] items-center">
-      <div class="flex gap-[15px] items-end">
+      <div class="flex flex-wrap gap-[15px] items-end w-fit">
         <p class="page-text-h font-bold text-[16px]">UI/UX Designer at</p>
         <div
           class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
@@ -684,7 +724,7 @@
         </div>
       </div>
       <div
-        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
+        class="h-[30px] md:h-[40px] w-[30px] md:w-[40px] bg-[rgb(35,35,35)] rounded-[4px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
       ></div>
     </div>
     <div class="mt-[15px] p-0 h-fit">
@@ -800,5 +840,4 @@
       font-size: 10.5px;
     }
   }
-
 </style>

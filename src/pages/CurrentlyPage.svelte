@@ -24,117 +24,117 @@
       italic stroke. Pixel font flows follower team fill.
     </p>
     <div class="flex justify-between mt-[30px] items-center">
-      <div class="flex gap-[10px] items-end">
+      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
         <div class="flex items-end">
           <img
             src="/static/emojis/stats.png"
             alt="stat"
-            class="emoji h-[25px] mr-[8px]"
+            class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
-          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+          <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
             >Codeforces- Pupil (1268)</span
           >
         </div>
-        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
           >last updated: July 9th, 2023</span
         >
       </div>
-      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
-      <div class="flex gap-[10px] items-end">
+      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
         <div class="flex items-end">
           <img
             src="/static/emojis/stats.png"
             alt="stat"
-            class="emoji h-[25px] mr-[8px]"
+            class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
-          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+          <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
             >CodeChef- 3* (1730)</span
           >
         </div>
-        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
           >last updated: July 9th, 2023</span
         >
       </div>
-      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
-      <div class="flex gap-[10px] items-end">
+      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
         <div class="flex items-end">
           <img
             src="/static/emojis/stats.png"
             alt="stat"
-            class="emoji h-[25px] mr-[8px]"
+            class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
-          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+          <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
             >LeetCode- Knight (1268)</span
           >
         </div>
-        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
           >last updated: July 9th, 2023</span
         >
       </div>
-      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
-      <div class="flex gap-[10px] items-end">
+      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
         <div class="flex items-end">
           <img
             src="/static/emojis/stats.png"
             alt="stat"
-            class="emoji h-[25px] mr-[8px]"
+            class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
-          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+          <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
             >Cumulative GPA- 8.41</span
           >
         </div>
-        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
           >last updated: July 9th, 2023</span
         >
       </div>
-      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
-      <div class="flex gap-[10px] items-end">
+      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
         <div class="flex items-end">
           <img
             src="/static/emojis/stats.png"
             alt="stat"
-            class="emoji h-[25px] mr-[8px]"
+            class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
-          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
+          <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
             >Github- 143 Stars</span
           >
         </div>
-        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
           >last updated: July 9th, 2023</span
         >
       </div>
-      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
-      <div class="flex gap-[10px] items-end">
+      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
         <div class="flex items-end">
           <img
             src="/static/emojis/stats.png"
             alt="stat"
-            class="emoji h-[25px] mr-[8px]"
+            class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
-          <span class="jbm font-bold text-[20px] text-[#D0D0D0]"
-            >LeetCode- 197 Questions (47, 98, 33)</span
+          <p class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0] leading-[1.4]"
+            >LeetCode- 197 Questions (47, 98, 33)</p
           >
         </div>
-        <span class="jbm font-normal italic text-[10px] text-[#808080]"
+        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
           >last updated: July 9th, 2023</span
         >
       </div>
-      <div class="h-[35px] w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
   </div>

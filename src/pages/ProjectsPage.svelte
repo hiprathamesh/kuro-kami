@@ -1,5 +1,61 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+
+  // Add carousel functionality
+  let currentSlide1 = $state(0);
+  let currentSlide2 = $state(0);
+  let carouselContainer1: HTMLElement;
+  let carouselContainer2: HTMLElement;
+  let captions1 = [
+    "At my first trip in college.",
+    "At my second trip in college.",
+  ];
+  let captions2 = [
+    "At my third trip in college.",
+    "At my fourth trip in college.",
+  ];
+
+  function scrollToSlide1(index: number) {
+    if (!carouselContainer1) return;
+    currentSlide1 = index;
+    carouselContainer1.scrollTo({
+      left: carouselContainer1.clientWidth * index,
+      behavior: "smooth",
+    });
+  }
+
+  function scrollToSlide2(index: number) {
+    if (!carouselContainer2) return;
+    currentSlide2 = index;
+    carouselContainer2.scrollTo({
+      left: carouselContainer2.clientWidth * index,
+      behavior: "smooth",
+    });
+  }
+
+  function handleScroll1() {
+    if (!carouselContainer1) return;
+    const scrollPosition = carouselContainer1.scrollLeft;
+    const slideWidth = carouselContainer1.clientWidth;
+    const newSlide = Math.round(scrollPosition / slideWidth);
+
+    // Only update if the slide actually changed
+    if (newSlide !== currentSlide1) {
+      currentSlide1 = newSlide;
+    }
+  }
+
+  function handleScroll2() {
+    if (!carouselContainer2) return;
+    const scrollPosition = carouselContainer2.scrollLeft;
+    const slideWidth = carouselContainer2.clientWidth;
+    const newSlide = Math.round(scrollPosition / slideWidth);
+
+    // Only update if the slide actually changed
+    if (newSlide !== currentSlide2) {
+      currentSlide2 = newSlide;
+    }
+  }
 </script>
 
 <div class="page-content" transition:fade>
@@ -77,14 +133,54 @@
       reesizing flows. Thumbnail auto scale text boolean link strikethrough link
       italic stroke. Pixel font flows follower team fill.
     </p>
-    <div class="flex gap-[20px] mt-[30px]">
-      <div class="justify-center flex w-[250px] flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+    <div class="image-section">
+      <div class="desktop-view flex gap-[20px] mt-[30px]">
+        <div class="justify-center flex w-[250px] flex-col">
+          <div class="image-placeholder h-[175px]"></div>
+          <span class="caption">At my second trip in college.</span>
+        </div>
+        <div class="justify-center flex w-[400px] flex-col">
+          <div class="image-placeholder h-[175px]"></div>
+          <span class="caption">At my second trip in college.</span>
+        </div>
       </div>
-      <div class="justify-center flex w-[400px] flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+      <div class="mobile-carousel">
+        <div
+          class="carousel-container"
+          bind:this={carouselContainer1}
+          onscroll={handleScroll1}
+        >
+          <div class="carousel-slide">
+            <div class="image-placeholder h-[175px]"></div>
+          </div>
+          <div class="carousel-slide">
+            <div class="image-placeholder h-[175px]"></div>
+          </div>
+        </div>
+
+        <!-- Caption container with fixed position -->
+        <div class="caption-container">
+          {#key currentSlide1}
+            <span class="carousel-caption" transition:fade={{ duration: 200 }}>
+              {captions1[currentSlide1]}
+            </span>
+          {/key}
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="carousel-dots h-fit">
+          <div
+            class="flex justify-center items-center w-fit h-fit bg-[rgba(255,255,255,0.1)] rounded-[12px] p-[6px]"
+          >
+            {#each [0, 1] as dot, i}
+              <button
+                class="carousel-dot {currentSlide1 === i ? 'active' : ''}"
+                onclick={() => scrollToSlide1(i)}
+                aria-label="Go to image {i + 1}"
+              ></button>
+            {/each}
+          </div>
+        </div>
       </div>
     </div>
     <p class="page-text mt-[30px]">
@@ -154,14 +250,54 @@
       reesizing flows. Thumbnail auto scale text boolean link strikethrough link
       italic stroke. Pixel font flows follower team fill.
     </p>
-    <div class="flex gap-[20px] mt-[30px]">
-      <div class="justify-center flex w-[250px] flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+    <div class="image-section">
+      <div class="desktop-view flex gap-[20px] mt-[30px]">
+        <div class="justify-center flex w-[250px] flex-col">
+          <div class="image-placeholder h-[175px]"></div>
+          <span class="caption">At my second trip in college.</span>
+        </div>
+        <div class="justify-center flex w-[400px] flex-col">
+          <div class="image-placeholder h-[175px]"></div>
+          <span class="caption">At my second trip in college.</span>
+        </div>
       </div>
-      <div class="justify-center flex w-[400px] flex-col">
-        <div class="image-placeholder h-[175px]"></div>
-        <span class="caption">At my second trip in college.</span>
+      <div class="mobile-carousel">
+        <div
+          class="carousel-container"
+          bind:this={carouselContainer2}
+          onscroll={handleScroll2}
+        >
+          <div class="carousel-slide">
+            <div class="image-placeholder h-[175px]"></div>
+          </div>
+          <div class="carousel-slide">
+            <div class="image-placeholder h-[175px]"></div>
+          </div>
+        </div>
+
+        <!-- Caption container with fixed position -->
+        <div class="caption-container">
+          {#key currentSlide2}
+            <span class="carousel-caption" transition:fade={{ duration: 200 }}>
+              {captions2[currentSlide2]}
+            </span>
+          {/key}
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="carousel-dots h-fit">
+          <div
+            class="flex justify-center items-center w-fit h-fit bg-[rgba(255,255,255,0.1)] rounded-[12px] p-[6px]"
+          >
+            {#each [0, 1] as dot, i}
+              <button
+                class="carousel-dot {currentSlide2 === i ? 'active' : ''}"
+                onclick={() => scrollToSlide2(i)}
+                aria-label="Go to image {i + 1}"
+              ></button>
+            {/each}
+          </div>
+        </div>
       </div>
     </div>
     <p class="page-text mt-[30px] mb-[80px]">
@@ -238,7 +374,110 @@
     margin-top: 12px;
   }
 
+  /* Image section responsive styles */
+  .desktop-view {
+    display: flex;
+  }
+
+  .mobile-carousel {
+    display: none;
+  }
+
   @media screen and (max-width: 767px) {
+    .desktop-view {
+      display: none;
+    }
+
+    .mobile-carousel {
+      display: block;
+      width: 100%;
+      position: relative;
+      margin: 25px 0;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+      width: 100%;
+      scroll-behavior: smooth;
+      padding: 0 5px; /* Add some padding */
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .carousel-slide {
+      flex: 0 0 90%; /* Slightly smaller than 100% to show a glimpse of next slide */
+      width: 90%;
+      scroll-snap-align: center;
+      padding: 0 10px; /* Add padding to each slide */
+      box-sizing: border-box;
+    }
+
+    .mobile-carousel .image-placeholder {
+      width: 100%;
+      margin: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    }
+
+    .caption-container {
+      height: 30px; /* Fixed height to prevent layout shifts */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .caption {
+      text-align: center;
+      color: #a0a0a0;
+      font-size: 9px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    .carousel-caption {
+      text-align: center;
+      color: #a0a0a0;
+      font-size: 9px;
+      width: 100%;
+      display: block;
+      position: absolute; /* Absolute position to avoid layout shifts */
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%); /* Center vertically */
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 80%;
+      background-color: rgba(76, 134, 255, 0.3);
+      border: none;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.6;
+    }
+
+    .carousel-dot.active {
+      background-color: #4c86ff;
+      opacity: 1;
+    }
+
     .heading {
       font-size: 20px;
     }
@@ -252,5 +491,4 @@
       font-size: 10.5px;
     }
   }
-
 </style>
