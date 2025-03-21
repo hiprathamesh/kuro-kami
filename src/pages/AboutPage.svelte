@@ -52,7 +52,7 @@
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
-      I am Prathamesh Nikam, a front end developer (React, Svelte), a designer
+      I am Prathamesh Vaishali Prashant Nikam, a front end developer (React, Svelte), a designer
       with a passion for creating intuitive and dynamic user experiences. I have
       a keen eye for detail and a strong understanding of modern web
       technologies. My work involves transforming complex ideas into elegant and
