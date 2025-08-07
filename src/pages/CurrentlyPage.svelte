@@ -108,7 +108,7 @@
             class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
           <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
-            >Github- 143 Stars</span
+            >Github- 55 Stars</span
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"

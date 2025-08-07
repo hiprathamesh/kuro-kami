@@ -191,6 +191,123 @@
     </p>
     <hr class="separator mt-[40px] mb-[40px]" />
     <p class="jbm font-bold text-[20px] text-[#D0D0D0]">
+      AttendIt - Making Indian Attendance Systems Sensible
+    </p>
+
+    <div class="justify-center flex w-full h-fit mt-[30px]">
+      <div class="image-placeholder h-[200px]"></div>
+    </div>
+    <div class="flex justify-between items-end mt-[25px]">
+      <p class="jbm font-medium text-[11px] text-[#808080]">BHOPAL, 2023</p>
+      <div class="flex gap-[20px]">
+        <div
+          class="h-[45px] w-[45px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        ></div>
+        <div
+          class="h-[45px] w-[45px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        ></div>
+        <div
+          class="h-[45px] w-[45px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        ></div>
+        <div
+          class="h-[45px] w-[45px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+        ></div>
+      </div>
+    </div>
+    <p class="page-text mt-[20px]">
+      I am a designer line here and more. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill. I am a designer line
+      here and more. Project boolean italic edit strikethrough device component
+      community fill. Italic selection project reesizing flows. Thumbnail auto
+      scale text boolean link strikethrough link italic stroke. Pixel font flows
+      follower team fill.
+    </p>
+    <div class="flex gap-[20px] mt-[20px]">
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+      <div
+        class="h-[40px] w-[40px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"
+      ></div>
+    </div>
+    <p class="page-text mt-[20px]">
+      I am a designer line here and more. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
+    <div class="image-section">
+      <div class="desktop-view flex gap-[20px] mt-[30px]">
+        <div class="justify-center flex w-[250px] flex-col">
+          <div class="image-placeholder h-[175px]"></div>
+          <span class="caption">At my second trip in college.</span>
+        </div>
+        <div class="justify-center flex w-[400px] flex-col">
+          <div class="image-placeholder h-[175px]"></div>
+          <span class="caption">At my second trip in college.</span>
+        </div>
+      </div>
+      <div class="mobile-carousel">
+        <div
+          class="carousel-container"
+          bind:this={carouselContainer1}
+          onscroll={handleScroll1}
+        >
+          <div class="carousel-slide">
+            <div class="image-placeholder h-[175px]"></div>
+          </div>
+          <div class="carousel-slide">
+            <div class="image-placeholder h-[175px]"></div>
+          </div>
+        </div>
+
+        <!-- Caption container with fixed position -->
+        <div class="caption-container">
+          {#key currentSlide1}
+            <span class="carousel-caption" transition:fade={{ duration: 200 }}>
+              {captions1[currentSlide1]}
+            </span>
+          {/key}
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="carousel-dots h-fit">
+          <div
+            class="flex justify-center items-center w-fit h-fit bg-[rgba(255,255,255,0.1)] rounded-[12px] p-[6px]"
+          >
+            {#each [0, 1] as dot, i}
+              <button
+                class="carousel-dot {currentSlide1 === i ? 'active' : ''}"
+                onclick={() => scrollToSlide1(i)}
+                aria-label="Go to image {i + 1}"
+              ></button>
+            {/each}
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="page-text mt-[30px]">
+      I am a designer line here and more. Project boolean italic edit
+      strikethrough device component community fill. Italic selection project
+      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
+      italic stroke. Pixel font flows follower team fill.
+    </p>
+    <hr class="separator mt-[40px] mb-[40px]" />
+    <p class="jbm font-bold text-[20px] text-[#D0D0D0]">
       IIIT Bhopal Official Website
     </p>
 
