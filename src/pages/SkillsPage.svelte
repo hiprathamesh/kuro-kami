@@ -714,7 +714,7 @@
     </p>
     <div class="flex justify-between mt-[60px] items-center">
       <div class="flex flex-wrap gap-[15px] items-end w-fit">
-        <p class="page-text-h font-bold text-[16px]">UI/UX Designer at</p>
+        <p class="page-text-h font-bold text-[16px]">Frontend Developer at</p>
         <div
           class="py-[10px] px-[25px] bg-[rgb(35,35,35)] rounded-[5px] cursor-pointer flex justify-center items-center border-[0.25px] border-solid border-[rgba(255,255,255,0.15)]"
         >
@@ -729,7 +729,7 @@
     </div>
     <div class="mt-[15px] p-0 h-fit">
       <span class="font-medium text-[11px] text-[#808080]">
-        REMOTE, FEB‘24-APR‘24
+        REMOTE, FEB‘24-MAY‘24
       </span>
     </div>
     <p class="page-text mt-[10px] mb-[80px]">
