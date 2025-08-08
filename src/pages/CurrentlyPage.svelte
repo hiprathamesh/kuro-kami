@@ -51,26 +51,7 @@
             class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
           <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
-            >CodeChef- 3* (1730)</span
-          >
-        </div>
-        <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
-          >last updated: July 9th, 2023</span
-        >
-      </div>
-      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
-    </div>
-    <hr class="separator mt-[30px] mb-[30px]" />
-    <div class="flex justify-between items-center">
-      <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
-        <div class="flex items-end">
-          <img
-            src="/static/emojis/stats.png"
-            alt="stat"
-            class="emoji h-[20px] md:h-[25px] mr-[8px]"
-          />
-          <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
-            >LeetCode- Knight (1268)</span
+            >CodeChef- 4* (1730)</span
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
