@@ -651,9 +651,9 @@
     <p class="page-text mt-[30px]">
       I have solved numerous questions on Data Structures and Algorithms (DSA)
       across various coding platforms like LeetCode, where I have solved over
-      500 questions, and I regularly practice competitive programming problems
-      on Codeforces and CodeChef, with over 300 problems solved on each
-      platform.
+      550 questions, and I regularly practice competitive programming problems
+      on Codeforces and CodeChef, with over 200 problems solved across both
+      platforms.
     </p>
     <hr class="separator mt-[40px] mb-[40px]" />
     <p class="page-text">

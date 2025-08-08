@@ -50,13 +50,13 @@
         >
           <path
             d="M5 13L13 5"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
           <path
             d="M5 5H13V13"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
@@ -90,13 +90,13 @@
         >
           <path
             d="M5 13L13 5"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
           <path
             d="M5 5H13V13"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
@@ -130,13 +130,13 @@
         >
           <path
             d="M5 13L13 5"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
           <path
             d="M5 5H13V13"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
@@ -170,13 +170,13 @@
         >
           <path
             d="M5 13L13 5"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
           <path
             d="M5 5H13V13"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
@@ -210,13 +210,13 @@
         >
           <path
             d="M5 13L13 5"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
           <path
             d="M5 5H13V13"
-            stroke="#D0D0D0"
+            stroke="#5A5A5A"
             stroke-width="2"
             stroke-linecap="round"
           />
