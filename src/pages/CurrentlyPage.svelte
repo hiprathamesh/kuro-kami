@@ -12,16 +12,17 @@
     <span class="heading">Currently</span>
   </div>
   <p class="quote">
-    "Don’t watch the clock; do what it does. Keep going." ~ Sam Levenson
+    "Don't watch the clock; do what it does. Keep going." ~ Sam Levenson
   </p>
   <hr class="separator mt-[10px]" />
   <!-- Scrollable content -->
   <div class="content scrollable-section pt-[30px] pb-[200px]">
     <p class="page-text">
-      I am a designer line here and more. Project boolean italic edit
-      strikethrough device component community fill. Italic selection project
-      reesizing flows. Thumbnail auto scale text boolean link strikethrough link
-      italic stroke. Pixel font flows follower team fill.
+      Currently diving deep into full-stack development with a focus on modern web technologies.
+      Working on several exciting projects including web applications built with React, Node.js, and exploring
+      the latest in cloud architecture. When I'm not coding, you'll find me solving algorithmic challenges
+      on competitive programming platforms. Always learning,
+      always building, and constantly pushing the boundaries of what's possible in software development.
     </p>
     <div class="flex justify-between mt-[30px] items-center">
       <div class="flex flex-wrap gap-x-[10px] gap-y-[15px] items-end w-fit">
@@ -36,10 +37,31 @@
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
-          >last updated: July 9th, 2023</span
+          >last updated: March 11th, 2024</span
         >
       </div>
-      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <button class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]" aria-label="Open external link" on:click={() => window.open('https://codeforces.com/profile/royalp', '_blank', 'noopener,noreferrer')}
+        ><svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 13L13 5"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 5H13V13"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
@@ -51,14 +73,35 @@
             class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
           <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
-            >CodeChef- 4* (1730)</span
+            >CodeChef- 4* (1827)</span
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
-          >last updated: July 9th, 2023</span
+          >last updated: April 2nd, 2025</span
         >
       </div>
-      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <button class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]" aria-label="Open external link" on:click={() => window.open('https://www.codechef.com/users/heyprathamesh', '_blank', 'noopener,noreferrer')}
+        ><svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 13L13 5"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 5H13V13"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
@@ -70,14 +113,35 @@
             class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
           <span class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0]"
-            >Cumulative GPA- 8.41</span
+            >Cumulative GPA- 8.46</span
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
-          >last updated: July 9th, 2023</span
+          >last updated: June 18th, 2025</span
         >
       </div>
-      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <button class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]" aria-label="Open external link" on:click={() => window.open('https://drive.google.com/file/d/1HYpnbkvcqcHt1Ce3m6kMctA44c8T0gBm/view?usp=sharing', '_blank', 'noopener,noreferrer')}
+        ><svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 13L13 5"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 5H13V13"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
@@ -93,10 +157,31 @@
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
-          >last updated: July 9th, 2023</span
+          >last updated: August 5th, 2025</span
         >
       </div>
-      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <button class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]" aria-label="Open external link" on:click={() => window.open('https://github.com/hiprathamesh/doc-prescrip', '_blank', 'noopener,noreferrer')}
+        ><svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 13L13 5"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 5H13V13"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
     <div class="flex justify-between items-center">
@@ -108,14 +193,35 @@
             class="emoji h-[20px] md:h-[25px] mr-[8px]"
           />
           <p class="jbm font-bold text-[16px] md:text-[20px] text-[#D0D0D0] leading-[1.4]"
-            >LeetCode- 197 Questions (47, 98, 33)</p
+            >LeetCode- 569 Questions (138, 333, 98)</p
           >
         </div>
         <span class="jbm font-normal italic text-[9px] md:text-[10px] text-[#808080]"
-          >last updated: July 9th, 2023</span
+          >last updated: August 8th, 2025</span
         >
       </div>
-      <div class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]"></div>
+      <button class="h-[30px] md:h-[35px] w-[30px] md:w-[35px] bg-[rgb(35,35,35)] rounded-[6px] cursor-pointer flex justify-center items-center border-[0.01px] border-solid border-[rgba(255,255,255,0.05)]" aria-label="Open external link" on:click={() => window.open('https://leetcode.com/u/hiprathamesh/', '_blank', 'noopener,noreferrer')}
+        ><svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 13L13 5"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 5H13V13"
+            stroke="#D0D0D0"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </div>
     <hr class="separator mt-[30px] mb-[30px]" />
   </div>
