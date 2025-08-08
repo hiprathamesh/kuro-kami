@@ -621,8 +621,8 @@
     <p class="page-text">
       I am very passionate about competitive programming and regularly
       participate in contests on platforms like Codeforces, LeetCode, and
-      CodeChef. My highest ratings are 1268 on Codeforces, 1268 on LeetCode, and
-      1730 on CodeChef. These contests help me sharpen my problem-solving skills
+      CodeChef. My highest ratings are 1268 on Codeforces, 1655 on LeetCode, and
+      1861 on CodeChef. These contests help me sharpen my problem-solving skills
       and stay updated with the latest algorithms and techniques.
     </p>
 
